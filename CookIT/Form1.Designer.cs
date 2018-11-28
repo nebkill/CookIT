@@ -1,6 +1,6 @@
 ﻿namespace CookIT
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,34 +28,70 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pbBarBG = new System.Windows.Forms.PictureBox();
+            this.pLoadPanel = new System.Windows.Forms.Panel();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pbTray = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTray)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbBarBG
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(800, 50);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbBarBG.Location = new System.Drawing.Point(0, 0);
+            this.pbBarBG.Name = "pbBarBG";
+            this.pbBarBG.Size = new System.Drawing.Size(800, 50);
+            this.pbBarBG.TabIndex = 0;
+            this.pbBarBG.TabStop = false;
             // 
-            // Form1
+            // pLoadPanel
+            // 
+            this.pLoadPanel.Location = new System.Drawing.Point(0, 49);
+            this.pLoadPanel.Name = "pLoadPanel";
+            this.pLoadPanel.Size = new System.Drawing.Size(800, 401);
+            this.pLoadPanel.TabIndex = 1;
+            // 
+            // pbLogo
+            // 
+            this.pbLogo.Location = new System.Drawing.Point(12, 12);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(97, 30);
+            this.pbLogo.TabIndex = 2;
+            this.pbLogo.TabStop = false;
+            // 
+            // pbTray
+            // 
+            this.pbTray.Location = new System.Drawing.Point(755, 12);
+            this.pbTray.Name = "pbTray";
+            this.pbTray.Size = new System.Drawing.Size(33, 30);
+            this.pbTray.TabIndex = 3;
+            this.pbTray.TabStop = false;
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Controls.Add(this.pbTray);
+            this.Controls.Add(this.pbLogo);
+            this.Controls.Add(this.pLoadPanel);
+            this.Controls.Add(this.pbBarBG);
+            this.Name = "MainForm";
+            this.Text = "CookIT";
+            ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTray)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbBarBG;
+        private System.Windows.Forms.Panel pLoadPanel;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.PictureBox pbTray;
     }
 }
 
