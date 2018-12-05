@@ -56,6 +56,42 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module_Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module_Home.Designer.cs">
+      <DependentUpon>Module_Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module_LogReg.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module_LogReg.Designer.cs">
+      <DependentUpon>Module_LogReg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module_ReceptAdd.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module_ReceptAdd.Designer.cs">
+      <DependentUpon>Module_ReceptAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module_ReceptList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module_ReceptList.Designer.cs">
+      <DependentUpon>Module_ReceptList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module_ReceptView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module_ReceptView.Designer.cs">
+      <DependentUpon>Module_ReceptView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Module_tray.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module_tray.Designer.cs">
+      <DependentUpon>Module_tray.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recept.cs" />
