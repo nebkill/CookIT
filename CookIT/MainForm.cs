@@ -14,6 +14,16 @@ namespace CookIT
     {
         public MainForm()
         {
+            Module_tray tray = new Module_tray();
+            Module_ReceptList recept = new Module_ReceptList();
+            Module_Home home = new Module_Home();
+            Module_LogReg logReg = new Module_LogReg();
+            Module_ReceptView rView = new Module_ReceptView();
+            Module_ReceptAdd rAdd = new Module_ReceptAdd();
+            
+            Panel panel;
+
+
             InitializeComponent();
         }
 
