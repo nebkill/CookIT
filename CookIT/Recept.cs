@@ -9,16 +9,16 @@ namespace CookIT
     class Recept
     {
 
-        private string naam { get; set; }
-        private string desc { get; set; }
-        private string auteur { get; set; }
-        private string video { get; set; }
-        private string rating { get; set; }
-        private string dieet { get; set; }
-        private string[] benodigdheden { get; set; }
-        private string image { get; set; }
-        private string[] ingredienten { get; set; }
-        List<string> stappen { get; set; }
+        public string naam { get; set; }
+        public string desc { get; set; }
+        public string auteur { get; set; }
+        public string video { get; set; }
+        public string rating { get; set; }
+        public string dieet { get; set; }
+        public string[] benodigdheden { get; set; }
+        public string image { get; set; }
+        public string[] ingredienten { get; set; }
+        public List<string> stappen { get; set; }
 
         public Recept(string naam, string desc, string auteur, string video, string rating, string dieet, string[] benodigdheden, string image, string[] ingredienten, List<string> stappen)
         {

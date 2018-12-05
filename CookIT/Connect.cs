@@ -24,7 +24,7 @@ namespace CookIT
 
             connection = new MySqlConnection(connectionString);
         }
-
+        //gebruik deze method om de database connectie te openen
         public bool OpenConnection()
         {
             try
@@ -39,7 +39,7 @@ namespace CookIT
             }
             return false;
         }
-
+        //gebruik deze method om de database connectie te sluiten.
         public bool CloseConnection()
         {
             try
@@ -52,6 +52,11 @@ namespace CookIT
                 Debug.WriteLine(ex.ToString());
                 return false;
             }
+        }
+        //Insert een recept naar de table Recepten
+        public void insertRecept(Recept recept)
+        {
+            //Queries en commands enzo.
         }
     }
 }
