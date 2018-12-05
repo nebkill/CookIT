@@ -56,7 +56,27 @@ namespace CookIT
         //Insert een recept naar de table Recepten
         public void insertRecept(Recept recept)
         {
-            //Queries en commands enzo.
+            string readCommand = "INSERT INTO recepten (Naam,Description,Auteur,Video,Rating,Dieet,Benodigdheden,Image,Ingredienten,Stappen) VALUES (?naam,?desc,?auteur,?video,?rating,?dieet,?benodigdheden,?image,?ingredienten,?stappen);";
+            if (OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = readCommand;
+
+                cmd.Parameters.Add("?naam", MySqlDbType.VarChar).Value = recept.naam;
+                cmd.Parameters.Add("?desc", MySqlDbType.VarChar).Value = recept.desc;
+                cmd.Parameters.Add("?auteur", MySqlDbType.VarChar).Value = recept.auteur;
+                cmd.Parameters.Add("?video", MySqlDbType.VarChar).Value = recept.video;
+                cmd.Parameters.Add("?rating", MySqlDbType.VarChar).Value = recept.rating;
+                cmd.Parameters.Add("?dieet", MySqlDbType.VarChar).Value = recept.dieet;
+                cmd.Parameters.Add("?benodigdheden", MySqlDbType.VarChar).Value = recept.benodigdheden;
+                cmd.Parameters.Add("?image", MySqlDbType.VarChar).Value = recept.image;
+                cmd.Parameters.Add("?ingredienten", MySqlDbType.VarChar).Value = recept.ingredienten;
+                cmd.Parameters.Add("?stappen", MySqlDbType.VarChar).Value = recept.stappen;
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
         }
     }
 }
+
