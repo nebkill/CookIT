@@ -90,6 +90,12 @@
     <Compile Include="Module_ReceptView.Designer.cs">
       <DependentUpon>Module_ReceptView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Module_Search.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Module_Search.Designer.cs">
+      <DependentUpon>Module_Search.cs</DependentUpon>
+    </Compile>
     <Compile Include="Module_tray.cs">
       <SubType>UserControl</SubType>
     </Compile>
