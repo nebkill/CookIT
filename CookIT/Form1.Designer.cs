@@ -30,10 +30,8 @@
         {
             this.pbBarBG = new System.Windows.Forms.PictureBox();
             this.pLoadPanel = new System.Windows.Forms.Panel();
-            this.pbLogo = new System.Windows.Forms.PictureBox();
             this.pbTray = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +50,6 @@
             this.pLoadPanel.Size = new System.Drawing.Size(800, 401);
             this.pLoadPanel.TabIndex = 1;
             // 
-            // pbLogo
-            // 
-            this.pbLogo.Location = new System.Drawing.Point(12, 12);
-            this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(97, 30);
-            this.pbLogo.TabIndex = 2;
-            this.pbLogo.TabStop = false;
-            // 
             // pbTray
             // 
             this.pbTray.Location = new System.Drawing.Point(755, 12);
@@ -74,13 +64,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pbTray);
-            this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.pLoadPanel);
             this.Controls.Add(this.pbBarBG);
             this.Name = "MainForm";
             this.Text = "CookIT";
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).EndInit();
             this.ResumeLayout(false);
 
@@ -90,7 +78,6 @@
 
         private System.Windows.Forms.PictureBox pbBarBG;
         private System.Windows.Forms.Panel pLoadPanel;
-        private System.Windows.Forms.PictureBox pbLogo;
         private System.Windows.Forms.PictureBox pbTray;
     }
 }
