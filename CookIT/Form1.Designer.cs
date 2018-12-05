@@ -31,9 +31,7 @@
             this.pbBarBG = new System.Windows.Forms.PictureBox();
             this.pLoadPanel = new System.Windows.Forms.Panel();
             this.pbTray = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).BeginInit();
-            this.pLoadPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,7 +45,6 @@
             // 
             // pLoadPanel
             // 
-            this.pLoadPanel.Controls.Add(this.button1);
             this.pLoadPanel.Location = new System.Drawing.Point(0, 49);
             this.pLoadPanel.Name = "pLoadPanel";
             this.pLoadPanel.Size = new System.Drawing.Size(800, 401);
@@ -61,15 +58,6 @@
             this.pbTray.TabIndex = 3;
             this.pbTray.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(304, 138);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -81,7 +69,6 @@
             this.Name = "MainForm";
             this.Text = "CookIT";
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).EndInit();
-            this.pLoadPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).EndInit();
             this.ResumeLayout(false);
 
@@ -92,7 +79,6 @@
         private System.Windows.Forms.PictureBox pbBarBG;
         private System.Windows.Forms.Panel pLoadPanel;
         private System.Windows.Forms.PictureBox pbTray;
-        private System.Windows.Forms.Button button1;
     }
 }
 
