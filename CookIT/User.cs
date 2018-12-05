@@ -8,10 +8,12 @@ namespace CookIT
 {
     class User
     {
+        //Aanmaken fields en deze fields getters en setters geven
         private string naam { get; set; }
         private string achternaam { get; set; }
         private string email { get; set; }
 
+        //Constructor
         public User(string naam, string achternaam, string email)
         {
             this.naam = naam;
