@@ -12,6 +12,7 @@ namespace CookIT
 {
     public partial class MainForm : Form
     {
+        //Aanmaken van alle objecten en fields
         Module_tray tray = new Module_tray();
         Module_ReceptList recept = new Module_ReceptList();
         Module_Home home = new Module_Home();
@@ -21,6 +22,7 @@ namespace CookIT
         Module_Search search = new Module_Search();
         Panel panel;
 
+        //Constructor
         public MainForm()
         {
             InitializeComponent();
