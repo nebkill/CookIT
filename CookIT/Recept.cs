@@ -13,7 +13,7 @@ namespace CookIT
         public string desc { get; set; }
         public string auteur { get; set; }
         public string video { get; set; }
-        public string rating { get; set; }
+        public int rating { get; set; }
         public string dieet { get; set; }
         public string[] benodigdheden { get; set; }
         public string image { get; set; }
