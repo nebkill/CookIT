@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CookIT
 {
@@ -14,10 +15,10 @@ namespace CookIT
         MySqlConnection connection;
         public Connect()
         {
-            server = "";
-            database = "";
+            server = "cookitapp.eu";
+            database = "CookItApp";
             uid = "";
-            password = "";
+            password = "!";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -34,7 +35,7 @@ namespace CookIT
             }
             catch (MySqlException ex)
             {
-                Debug.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
 
             }
             return false;
@@ -49,7 +50,7 @@ namespace CookIT
             }
             catch (MySqlException ex)
             {
-                Debug.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
                 return false;
             }
         }
@@ -76,6 +77,17 @@ namespace CookIT
 
                 cmd.ExecuteNonQuery();
                 CloseConnection();
+            }
+        }
+        public void TestCon()
+        {
+            if (OpenConnection())
+            {
+                MessageBox.Show("Connection created\n\n" + connection.State);
+            }
+            else
+            {
+                MessageBox.Show("Conn Not Established");
             }
         }
     }

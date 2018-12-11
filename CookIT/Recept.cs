@@ -21,7 +21,7 @@ namespace CookIT
         public List<string> stappen { get; set; }
 
         //Constructor
-        public Recept(string naam, string desc, string auteur, string video, string rating, string dieet, string[] benodigdheden, string image, string[] ingredienten, List<string> stappen)
+        public Recept(string naam, string desc, string auteur, string video, int rating, string dieet, string[] benodigdheden, string image, string[] ingredienten, List<string> stappen)
         {
             this.naam = naam;
             this.desc = desc;
