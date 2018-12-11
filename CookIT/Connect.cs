@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -17,7 +18,7 @@ namespace CookIT
         {
             server = "cookitapp.eu";
             database = "CookItApp";
-            uid = "";
+            uid = "CookITAdmin";
             password = "!";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
@@ -79,17 +80,32 @@ namespace CookIT
                 CloseConnection();
             }
         }
-        public void TestCon()
+        public DataTable getRecepten()
         {
+            DataTable dt = new DataTable();
+            string query = "SELECT * FROM recepten";
             if (OpenConnection())
             {
-                MessageBox.Show("Connection created\n\n" + connection.State);
+                MySqlDataAdapter mda = new MySqlDataAdapter();
+                mda.SelectCommand = new MySqlCommand(query,connection);
+                mda.Fill(dt);
             }
-            else
-            {
-                MessageBox.Show("Conn Not Established");
-            }
+            return dt;
         }
+        /*
+         * Gebuik dit om de connectie te testen
+         * 
+         * public void TestCon()
+         * {
+         *    if (OpenConnection())
+         *   {
+         *       MessageBox.Show("Connection created\n\n" + connection.State);
+         *   }
+         *   else
+         *   {
+         *        MessageBox.Show("Conn Not Established");
+         *   }
+        }*/
     }
 }
 

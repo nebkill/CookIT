@@ -26,7 +26,8 @@ namespace CookIT
         public MainForm()
         {
             InitializeComponent();
-            con.TestCon();
+            //Gebruik dit om de connectie te testen.
+            //con.TestCon();
         }
 
 
