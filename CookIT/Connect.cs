@@ -64,19 +64,36 @@ namespace CookIT
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = readCommand;
-
+                
+                StringBuilder sbStappen = new StringBuilder();
+                for (int i = 0; i < recept.stappen.Count; i++)
+                {
+                    sbStappen.Append("-").Append(recept.stappen[i]);
+                }
+                StringBuilder sbBenodigdheden = new StringBuilder();
+                for(int i = 0; i < recept.benodigdheden.Length; i++)
+                {
+                    sbBenodigdheden.Append("-").Append(recept.benodigdheden[i]);
+                }
+                StringBuilder sbIngredienten = new StringBuilder();
+                for (int i = 0; i < recept.ingredienten.Length; i++)
+                {
+                    sbIngredienten.Append("-").Append(recept.ingredienten[i]);
+                }
+                //stappen.Join("-", recept.stappen.ToArray());
                 cmd.Parameters.Add("?naam", MySqlDbType.VarChar).Value = recept.naam;
                 cmd.Parameters.Add("?desc", MySqlDbType.VarChar).Value = recept.desc;
                 cmd.Parameters.Add("?auteur", MySqlDbType.VarChar).Value = recept.auteur;
                 cmd.Parameters.Add("?video", MySqlDbType.VarChar).Value = recept.video;
                 cmd.Parameters.Add("?rating", MySqlDbType.Int32).Value = recept.rating;
                 cmd.Parameters.Add("?dieet", MySqlDbType.VarChar).Value = recept.dieet;
-                cmd.Parameters.Add("?benodigdheden", MySqlDbType.VarChar).Value = recept.benodigdheden;
+                cmd.Parameters.Add("?benodigdheden", MySqlDbType.VarChar).Value = sbBenodigdheden;
                 cmd.Parameters.Add("?image", MySqlDbType.VarChar).Value = recept.image;
-                cmd.Parameters.Add("?ingredienten", MySqlDbType.VarChar).Value = recept.ingredienten;
-                cmd.Parameters.Add("?stappen", MySqlDbType.VarChar).Value = recept.stappen;
+                cmd.Parameters.Add("?ingredienten", MySqlDbType.VarChar).Value = sbIngredienten.ToString();
+                cmd.Parameters.Add("?stappen", MySqlDbType.VarChar).Value = sbStappen.ToString();
 
                 cmd.ExecuteNonQuery();
+                
                 CloseConnection();
             }
         }
@@ -87,7 +104,7 @@ namespace CookIT
             if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
-                mda.SelectCommand = new MySqlCommand(query,connection);
+                mda.SelectCommand = new MySqlCommand(query, connection);
                 mda.Fill(dt);
             }
             return dt;
@@ -106,6 +123,15 @@ namespace CookIT
          *        MessageBox.Show("Conn Not Established");
          *   }
         }*/
+        public void updateRating(int ID, int amount)
+        {
+            string query = "UPDATE TABLE recepten SET Rating=" + amount + " WHERE teacher_id=" + ID;
+            if (OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+
+            }
+        }
     }
 }
 

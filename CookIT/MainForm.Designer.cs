@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pbBarBG = new System.Windows.Forms.PictureBox();
             this.pLoadPanel = new System.Windows.Forms.Panel();
             this.pbTray = new System.Windows.Forms.PictureBox();
@@ -43,65 +44,68 @@
             // pbBarBG
             // 
             this.pbBarBG.Location = new System.Drawing.Point(0, 0);
-            this.pbBarBG.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pbBarBG.Name = "pbBarBG";
-            this.pbBarBG.Size = new System.Drawing.Size(1067, 62);
+            this.pbBarBG.Size = new System.Drawing.Size(800, 50);
             this.pbBarBG.TabIndex = 0;
             this.pbBarBG.TabStop = false;
             // 
             // pLoadPanel
             // 
-            this.pLoadPanel.Location = new System.Drawing.Point(0, 60);
-            this.pLoadPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pLoadPanel.Location = new System.Drawing.Point(0, 49);
             this.pLoadPanel.Name = "pLoadPanel";
-            this.pLoadPanel.Size = new System.Drawing.Size(1067, 494);
+            this.pLoadPanel.Size = new System.Drawing.Size(800, 401);
             this.pLoadPanel.TabIndex = 1;
             // 
             // pbTray
             // 
-            this.pbTray.Location = new System.Drawing.Point(1007, 15);
-            this.pbTray.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pbTray.Image = ((System.Drawing.Image)(resources.GetObject("pbTray.Image")));
+            this.pbTray.Location = new System.Drawing.Point(753, 14);
             this.pbTray.Name = "pbTray";
-            this.pbTray.Size = new System.Drawing.Size(44, 37);
+            this.pbTray.Size = new System.Drawing.Size(35, 22);
+            this.pbTray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbTray.TabIndex = 3;
             this.pbTray.TabStop = false;
             // 
             // pbLogo
             // 
-            this.pbLogo.Location = new System.Drawing.Point(12, 3);
+            this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
+            this.pbLogo.Location = new System.Drawing.Point(14, 5);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbLogo.Name = "pbLogo";
-            this.pbLogo.Size = new System.Drawing.Size(101, 50);
+            this.pbLogo.Size = new System.Drawing.Size(43, 41);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbLogo.TabIndex = 4;
             this.pbLogo.TabStop = false;
             // 
             // tbSearch
             // 
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.Location = new System.Drawing.Point(250, 12);
+            this.tbSearch.Location = new System.Drawing.Point(188, 10);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(296, 40);
+            this.tbSearch.Size = new System.Drawing.Size(402, 33);
             this.tbSearch.TabIndex = 5;
             // 
             // pbZoek
             // 
-            this.pbZoek.Location = new System.Drawing.Point(553, 12);
+            this.pbZoek.Location = new System.Drawing.Point(595, 10);
+            this.pbZoek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbZoek.Name = "pbZoek";
-            this.pbZoek.Size = new System.Drawing.Size(95, 41);
+            this.pbZoek.Size = new System.Drawing.Size(67, 33);
             this.pbZoek.TabIndex = 6;
             this.pbZoek.TabStop = false;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pbZoek);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.pbLogo);
             this.Controls.Add(this.pbTray);
             this.Controls.Add(this.pLoadPanel);
             this.Controls.Add(this.pbBarBG);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "CookIT";
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).EndInit();

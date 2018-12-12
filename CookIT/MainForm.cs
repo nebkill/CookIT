@@ -29,7 +29,5 @@ namespace CookIT
             //Gebruik dit om de connectie te testen.
             //con.TestCon();
         }
-
-
     }
 }
