@@ -125,11 +125,12 @@ namespace CookIT
         }*/
         public void updateRating(int ID, int amount)
         {
-            string query = "UPDATE TABLE recepten SET Rating=" + amount + " WHERE teacher_id=" + ID;
+            string query = "UPDATE TABLE recepten SET recept_rating= recept_rating + " + amount + ",recept_peoplerated = recept_peoplerated + 1, recept_peopleaverage = recept_rating/recept_peoplerated WHERE recept_ID=" + ID;
             if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
-
+                cmd.ExecuteNonQuery();
+                CloseConnection();
             }
         }
     }
