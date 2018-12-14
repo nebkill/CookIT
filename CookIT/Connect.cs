@@ -58,7 +58,7 @@ namespace CookIT
         //Insert een recept naar de table Recepten
         public void insertRecept(Recept recept)
         {
-            string readCommand = "INSERT INTO recepten (Naam,Description,Auteur,Video,Rating,Dieet,Benodigdheden,Image,Ingredienten,Stappen) VALUES (?naam,?desc,?auteur,?video,?rating,?dieet,?benodigdheden,?image,?ingredienten,?stappen);";
+            string readCommand = "INSERT INTO recepten (recept_naam,recept_desc,recept_auteur,recept_video,recept_rating,recept_people,recept_average,recept_dieet,recept_benodigdheden,recept_image,recept_ingredienten,recept_stappen) VALUES (?naam,?desc,?auteur,?video,?rating,?people,?average,?dieet,?benodigdheden,?image,?ingredienten,?stappen);";
             if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -86,6 +86,8 @@ namespace CookIT
                 cmd.Parameters.Add("?auteur", MySqlDbType.VarChar).Value = recept.auteur;
                 cmd.Parameters.Add("?video", MySqlDbType.VarChar).Value = recept.video;
                 cmd.Parameters.Add("?rating", MySqlDbType.Int32).Value = recept.rating;
+                cmd.Parameters.Add("?people", MySqlDbType.VarChar).Value = 0;
+                cmd.Parameters.Add("?average", MySqlDbType.Float).Value = 0F;
                 cmd.Parameters.Add("?dieet", MySqlDbType.VarChar).Value = recept.dieet;
                 cmd.Parameters.Add("?benodigdheden", MySqlDbType.VarChar).Value = sbBenodigdheden;
                 cmd.Parameters.Add("?image", MySqlDbType.VarChar).Value = recept.image;
@@ -125,7 +127,7 @@ namespace CookIT
         }*/
         public void updateRating(int ID, int amount)
         {
-            string query = "UPDATE TABLE recepten SET recept_rating= recept_rating + " + amount + ",recept_peoplerated = recept_peoplerated + 1, recept_peopleaverage = recept_rating/recept_peoplerated WHERE recept_ID=" + ID;
+            string query = "UPDATE TABLE recepten SET recept_rating= recept_rating + " + amount + ",recept_peoplerated = recept_peoplerated + 1, recept_ratingaverage = recept_rating/recept_peoplerated WHERE recept_ID=" + ID;
             if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -133,6 +135,20 @@ namespace CookIT
                 CloseConnection();
             }
         }
+
+        public DataTable getTopTen()
+        {
+            DataTable dtTopTen = new DataTable();
+            string query = "SELECT FROm recepten WHERE ID NOT IN(SELECT TOP 10 ID FROM recepten ORDER BY recept_ratingaverage)";
+            if (OpenConnection())
+            {
+                MySqlDataAdapter mda = new MySqlDataAdapter();
+                mda.SelectCommand = new MySqlCommand(query, connection);
+                mda.Fill(dtTopTen);
+            }
+            return dtTopTen;
+        }
+
     }
 }
 

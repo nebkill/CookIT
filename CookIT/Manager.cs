@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,18 @@ namespace CookIT
         public void insertRecept(Recept recept)
         {
             con.insertRecept(recept);
+        }
+        public void updateRating(int ID, int amount)
+        {
+            con.updateRating(ID,amount);
+        }
+        public DataTable getTopTen()
+        {
+            return con.getTopTen();
+        }
+        public DataTable getRecepten()
+        {
+            return con.getRecepten();
         }
     }
 }
