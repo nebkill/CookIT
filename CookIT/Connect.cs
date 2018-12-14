@@ -148,7 +148,33 @@ namespace CookIT
             }
             return dtTopTen;
         }
+        //single recept getter voor receptlistview();
+        public Recept getRecept(Recept recept)
+        {
+            Recept receptByID  = new Recept();
+            string query = "SELECT row FROM recepten WHERE ID=?ID" ;
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.Add("?ID", MySqlDbType.Int32).Value = recept.id;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            //reader loop die er voor gaat zorgen dat alle data gestored gaat worden in een Recept Object
+            while (reader.Read())
+            {
+                
+                string[] benodigdheden = reader["recept_benodigdheden"].ToString().Split('-');
+                string[] ingredienten = reader["recept_ingredienten"].ToString().Split('-');
+                string[] stappenArray = reader["recept_stappen"].ToString().Split('-');
+                List<string> stappen = new List<string>();
+                foreach(string item in stappenArray)
+                {
+                    stappen.Add(item);
+                }
+                //Store alle data ban die regel via een reader in het object
+                receptByID = new Recept(Convert.ToInt32(reader["ID"]),reader["recept_naam"].ToString(),reader["recept_desc"].ToString(),reader["recept_auteur"].ToString(),reader["recept_video"].ToString(),Convert.ToInt32(reader["recept_rating"]),reader["recept_dieet"].ToString(),benodigdheden,reader["recept_image"].ToString(),ingredienten,stappen);
+            }
+            //return het object gevuld
+            return receptByID;
 
+        }
     }
 }
 

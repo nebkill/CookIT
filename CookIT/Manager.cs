@@ -30,5 +30,9 @@ namespace CookIT
         {
             return con.getRecepten();
         }
+        public Recept getRecept(Recept recept)
+        {
+            return con.getRecept(recept);
+        }
     }
 }
