@@ -64,14 +64,14 @@ namespace CookIT
                 MySqlCommand cmd = new MySqlCommand();
                 cmd.Connection = connection;
                 cmd.CommandText = readCommand;
-                
+
                 StringBuilder sbStappen = new StringBuilder();
                 for (int i = 0; i < recept.stappen.Count; i++)
                 {
                     sbStappen.Append("-").Append(recept.stappen[i]);
                 }
                 StringBuilder sbBenodigdheden = new StringBuilder();
-                for(int i = 0; i < recept.benodigdheden.Length; i++)
+                for (int i = 0; i < recept.benodigdheden.Length; i++)
                 {
                     sbBenodigdheden.Append("-").Append(recept.benodigdheden[i]);
                 }
@@ -95,10 +95,15 @@ namespace CookIT
                 cmd.Parameters.Add("?stappen", MySqlDbType.VarChar).Value = sbStappen.ToString();
 
                 cmd.ExecuteNonQuery();
-                
+
                 CloseConnection();
             }
         }
+
+        /*
+         * Vraag alle recepten op en store deze in een DataTable
+         * Returns: DataTable
+         */
         public DataTable getRecepten()
         {
             DataTable dt = new DataTable();
@@ -125,6 +130,10 @@ namespace CookIT
          *        MessageBox.Show("Conn Not Established");
          *   }
         }*/
+
+        /*
+         * Updated van de rating van een recept doormiddel van de ID van een recept en de rating die doorgegeven doormiddel van de amount tussen 1 en 5
+         */
         public void updateRating(int ID, int amount)
         {
             string query = "UPDATE TABLE recepten SET recept_rating= recept_rating + " + amount + ",recept_peoplerated = recept_peoplerated + 1, recept_ratingaverage = recept_rating/recept_peoplerated WHERE recept_ID=" + ID;
@@ -135,7 +144,10 @@ namespace CookIT
                 CloseConnection();
             }
         }
-
+        /*
+         * Aanvragen van top 10 recepten gebaseerd op de Average van alle recepten | TotalVoteScore / PeopleWhoVoted
+         * Returned : DataTable;
+        */
         public DataTable getTopTen()
         {
             DataTable dtTopTen = new DataTable();
@@ -148,33 +160,36 @@ namespace CookIT
             }
             return dtTopTen;
         }
-        //single recept getter voor receptlistview();
+        /*
+         * single recept getter voor receptlistview();
+         * Returned: Recept;
+         * Zoek in de DB voor het recept door middel van de ID die meegegeven word in het recept zelf.
+        */
         public Recept getRecept(Recept recept)
         {
-            Recept receptByID  = new Recept();
-            string query = "SELECT row FROM recepten WHERE ID=?ID" ;
+            Recept receptByID = new Recept();
+            string query = "SELECT row FROM recepten WHERE ID=?ID";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.Add("?ID", MySqlDbType.Int32).Value = recept.id;
             MySqlDataReader reader = cmd.ExecuteReader();
             //reader loop die er voor gaat zorgen dat alle data gestored gaat worden in een Recept Object
             while (reader.Read())
             {
-                
+
                 string[] benodigdheden = reader["recept_benodigdheden"].ToString().Split('-');
                 string[] ingredienten = reader["recept_ingredienten"].ToString().Split('-');
                 string[] stappenArray = reader["recept_stappen"].ToString().Split('-');
+                
                 List<string> stappen = new List<string>();
-                foreach(string item in stappenArray)
+                foreach (string item in stappenArray)
                 {
                     stappen.Add(item);
                 }
                 //Store alle data ban die regel via een reader in het object
-                receptByID = new Recept(Convert.ToInt32(reader["ID"]),reader["recept_naam"].ToString(),reader["recept_desc"].ToString(),reader["recept_auteur"].ToString(),reader["recept_video"].ToString(),Convert.ToInt32(reader["recept_rating"]),reader["recept_dieet"].ToString(),benodigdheden,reader["recept_image"].ToString(),ingredienten,stappen);
+                receptByID = new Recept(Convert.ToInt32(reader["ID"]), reader["recept_naam"].ToString(), reader["recept_desc"].ToString(), reader["recept_auteur"].ToString(), reader["recept_video"].ToString(), Convert.ToInt32(reader["recept_rating"]), reader["recept_dieet"].ToString(), benodigdheden, reader["recept_image"].ToString(), ingredienten, stappen);
             }
             //return het object gevuld
             return receptByID;
-
         }
     }
 }
-
