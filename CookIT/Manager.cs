@@ -47,7 +47,7 @@ namespace CookIT
          */
         public Recept getRecept(int id)
         {
-            return con.getRecept(recept);
+            return con.getRecept(id);
         }
     }
 }

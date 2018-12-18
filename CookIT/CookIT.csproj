@@ -33,8 +33,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HtmlRenderer, Version=1.5.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.0.5\lib\net45\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer.PdfSharp, Version=1.5.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.PdfSharp.1.5.0.6\lib\net45\HtmlRenderer.PdfSharp.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data">
       <HintPath>C:\Users\Vyx\Downloads\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -103,6 +115,7 @@
       <DependentUpon>Module_tray.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
+    <Compile Include="PDFHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recept.cs" />
@@ -119,6 +132,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
