@@ -18,19 +18,34 @@ namespace CookIT
         {
             con.insertRecept(recept);
         }
+        /*
+         * Update Rating doormiddel vna de ID mee te geven van het recept en de rating(1/5) via de amount parameter
+         */
         public void updateRating(int ID, int amount)
         {
             con.updateRating(ID,amount);
         }
+        /*
+         * Verkrijg een datatable met de top tien gebasseerd op de rating van: TotalRating/People = AverageRating;
+         * Returns: DataTable
+         */
         public DataTable getTopTen()
         {
             return con.getTopTen();
         }
+        /*
+         * Verkrijg alle recepten van de database
+         * Returns: DataTable
+         */
         public DataTable getRecepten()
         {
             return con.getRecepten();
         }
-        public Recept getRecept(Recept recept)
+        /*
+         * Verkrijg het recept doormiddel met het doorsturen van het recept weer te storen in het object.
+         * Returns: Recept;
+         */
+        public Recept getRecept(int id)
         {
             return con.getRecept(recept);
         }

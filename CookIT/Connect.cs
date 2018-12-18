@@ -160,17 +160,18 @@ namespace CookIT
             }
             return dtTopTen;
         }
+
         /*
          * single recept getter voor receptlistview();
          * Returned: Recept;
          * Zoek in de DB voor het recept door middel van de ID die meegegeven word in het recept zelf.
         */
-        public Recept getRecept(Recept recept)
+        public Recept getRecept(int id)
         {
             Recept receptByID = new Recept();
             string query = "SELECT row FROM recepten WHERE ID=?ID";
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            cmd.Parameters.Add("?ID", MySqlDbType.Int32).Value = recept.id;
+            cmd.Parameters.Add("?ID", MySqlDbType.Int32).Value = id;
             MySqlDataReader reader = cmd.ExecuteReader();
             //reader loop die er voor gaat zorgen dat alle data gestored gaat worden in een Recept Object
             while (reader.Read())
