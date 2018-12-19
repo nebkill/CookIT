@@ -123,6 +123,24 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Module_Home.resx">
+      <DependentUpon>Module_Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module_LogReg.resx">
+      <DependentUpon>Module_LogReg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module_ReceptAdd.resx">
+      <DependentUpon>Module_ReceptAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module_ReceptList.resx">
+      <DependentUpon>Module_ReceptList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module_ReceptView.resx">
+      <DependentUpon>Module_ReceptView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Module_Search.resx">
+      <DependentUpon>Module_Search.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -45,7 +45,7 @@
             // 
             this.pbBarBG.Location = new System.Drawing.Point(0, 0);
             this.pbBarBG.Name = "pbBarBG";
-            this.pbBarBG.Size = new System.Drawing.Size(800, 50);
+            this.pbBarBG.Size = new System.Drawing.Size(1260, 50);
             this.pbBarBG.TabIndex = 0;
             this.pbBarBG.TabStop = false;
             // 
@@ -53,13 +53,13 @@
             // 
             this.pLoadPanel.Location = new System.Drawing.Point(0, 49);
             this.pLoadPanel.Name = "pLoadPanel";
-            this.pLoadPanel.Size = new System.Drawing.Size(800, 401);
+            this.pLoadPanel.Size = new System.Drawing.Size(1260, 630);
             this.pLoadPanel.TabIndex = 1;
             // 
             // pbTray
             // 
             this.pbTray.Image = ((System.Drawing.Image)(resources.GetObject("pbTray.Image")));
-            this.pbTray.Location = new System.Drawing.Point(753, 14);
+            this.pbTray.Location = new System.Drawing.Point(1217, 12);
             this.pbTray.Name = "pbTray";
             this.pbTray.Size = new System.Drawing.Size(35, 22);
             this.pbTray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -70,7 +70,7 @@
             // 
             this.pbLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbLogo.Image")));
             this.pbLogo.Location = new System.Drawing.Point(14, 5);
-            this.pbLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pbLogo.Name = "pbLogo";
             this.pbLogo.Size = new System.Drawing.Size(43, 41);
             this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -80,16 +80,16 @@
             // tbSearch
             // 
             this.tbSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbSearch.Location = new System.Drawing.Point(188, 10);
-            this.tbSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbSearch.Location = new System.Drawing.Point(399, 10);
+            this.tbSearch.Margin = new System.Windows.Forms.Padding(2);
             this.tbSearch.Name = "tbSearch";
-            this.tbSearch.Size = new System.Drawing.Size(402, 33);
+            this.tbSearch.Size = new System.Drawing.Size(421, 33);
             this.tbSearch.TabIndex = 5;
             // 
             // pbZoek
             // 
-            this.pbZoek.Location = new System.Drawing.Point(595, 10);
-            this.pbZoek.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbZoek.Location = new System.Drawing.Point(824, 10);
+            this.pbZoek.Margin = new System.Windows.Forms.Padding(2);
             this.pbZoek.Name = "pbZoek";
             this.pbZoek.Size = new System.Drawing.Size(67, 33);
             this.pbZoek.TabIndex = 6;
@@ -99,7 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
             this.Controls.Add(this.pbZoek);
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.pbLogo);
