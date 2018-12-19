@@ -29,17 +29,15 @@ namespace CookIT
         {
             InitializeComponent();
 
-            string user = "username1";
-            string pass = "wachtwoord1";
-            LogIn inlog = new LogIn(user, pass);
-            if(inlog.IsLoggedIn(inlog.gebruikersnaam, inlog.wachtwoord))
-            {
-                MessageBox.Show("ingelogd");
-            }
-            else
-            {
-                MessageBox.Show("incorrect");
-            }
+            //string user = "username";
+            //string pass = "wachtwoord1";
+
+            //LogIn inlog = new LogIn(user, pass);
+
+            //if (tbGebruikersNaam.Text != "" && tbWachtwoord.Text = "")
+            //{
+            //    inlog.IsLoggedIn(inlog.gebruikersnaam, inlog.wachtwoord);
+            //}
 
         }
     }
