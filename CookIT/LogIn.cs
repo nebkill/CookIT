@@ -27,8 +27,11 @@ namespace CookIT
             this.achterNaam = achterNaam;
             this.rol = rol;
         }
-        
-
+        public LogIn(string gebruikersnaam, string wachtwoord)
+        {
+            this.gebruikersnaam = gebruikersnaam;
+            this.wachtwoord = wachtwoord;
+        }
         //validate string 
         private bool StringValidator(string input)
         {
