@@ -54,5 +54,9 @@ namespace CookIT
         {
             ph.createPDF(recept);
         }
+        public DataTable getUsers()
+        {
+            return con.getUsers();
+        }
     }
 }

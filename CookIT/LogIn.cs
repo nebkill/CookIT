@@ -1,4 +1,4 @@
-﻿    using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +10,7 @@ namespace CookIT
 {
     class LogIn
     {
+        Manager mg = new Manager();
         public string gebruikersnaam { get; set; }
         public string wachtwoord { get; set; }
         public string email { get; set; }
@@ -26,7 +27,7 @@ namespace CookIT
             this.achterNaam = achterNaam;
             this.rol = rol;
         }
-        
+
         //validate string 
         private bool StringValidator(string input)
         {
@@ -79,37 +80,40 @@ namespace CookIT
             //check user name is correct 
             else
             {
-                if (gebruikersnaam != user)
+                for (int i = 0; i < mg.getUsers().Rows.Count; i++)
                 {
-                    MessageBox.Show("User name is incorrect!");
-                    ClearTexts(user, pass);
-                    return false;
-                }
-                //check password is empty 
-                else
-                {
-                    if (string.IsNullOrEmpty(pass))
+
+                    if (gebruikersnaam != mg.getUsers().Rows[i][2].ToString())
                     {
-                        MessageBox.Show("Enter the passowrd!");
+                        MessageBox.Show("User name is incorrect!");
+                        ClearTexts(user, pass);
                         return false;
                     }
-                    //check password is valid 
-                    else if (IntegerValidator(pass) == true)
-                    {
-                        MessageBox.Show("Enter only integer here");
-                        return false;
-                    }
-                    //check password is correct 
-                    else if (wachtwoord != pass)
-                    {
-                        MessageBox.Show("Password is incorrect");
-                        return false;
-                    }
+
+                    //check password is empty 
                     else
                     {
-                        return true;
+                        if (string.IsNullOrEmpty(pass))
+                        {
+                            MessageBox.Show("Enter the passowrd!");
+                            return false;
+                        }
+                        //check password is valid 
+                        else if (IntegerValidator(pass) == true)
+                        {
+                            MessageBox.Show("Enter only integer here");
+                            return false;
+                        }
+                        //check password is correct 
+                        else if (wachtwoord != mg.getUsers().Rows[i][3].ToString()) 
+                        {
+                            MessageBox.Show("Password is incorrect");
+                            return false;
+                        }
+                        
                     }
                 }
+                return true;
             }
         }
     }
