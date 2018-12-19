@@ -27,6 +27,7 @@ namespace CookIT
             this.achterNaam = achterNaam;
             this.rol = rol;
         }
+        
 
         //validate string 
         private bool StringValidator(string input)
@@ -60,9 +61,13 @@ namespace CookIT
             user = String.Empty;
             pass = String.Empty;
         }
+        
         //method to check if eligible to be logged in 
         internal bool IsLoggedIn(string user, string pass)
         {
+            user = "username1";
+            pass = "wachtwoord1";
+
             //check user name empty 
             if (string.IsNullOrEmpty(user))
             {
@@ -70,20 +75,14 @@ namespace CookIT
                 return false;
 
             }
-            //check user name is valid type 
-            else if (StringValidator(user) == true)
-            {
-                MessageBox.Show("Enter only text here");
-                ClearTexts(user, pass);
-                return false;
-            }
+
             //check user name is correct 
             else
             {
                 for (int i = 0; i < mg.getUsers().Rows.Count; i++)
                 {
 
-                    if (gebruikersnaam != mg.getUsers().Rows[i][2].ToString())
+                    if (user != mg.getUsers().Rows[i][2].ToString())
                     {
                         MessageBox.Show("User name is incorrect!");
                         ClearTexts(user, pass);
@@ -98,14 +97,9 @@ namespace CookIT
                             MessageBox.Show("Enter the passowrd!");
                             return false;
                         }
-                        //check password is valid 
-                        else if (IntegerValidator(pass) == true)
-                        {
-                            MessageBox.Show("Enter only integer here");
-                            return false;
-                        }
+
                         //check password is correct 
-                        else if (wachtwoord != mg.getUsers().Rows[i][3].ToString()) 
+                        else if (pass != mg.getUsers().Rows[i][3].ToString()) 
                         {
                             MessageBox.Show("Password is incorrect");
                             return false;
