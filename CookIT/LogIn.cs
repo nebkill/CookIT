@@ -68,8 +68,7 @@ namespace CookIT
         //method to check if eligible to be logged in 
         internal bool IsLoggedIn(string user, string pass)
         {
-            user = "username1";
-            pass = "wachtwoord1";
+          
 
             //check user name empty 
             if (string.IsNullOrEmpty(user))

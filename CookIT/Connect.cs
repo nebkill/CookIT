@@ -19,7 +19,7 @@ namespace CookIT
             server = "cookitapp.eu";
             database = "CookItApp";
             uid = "CookITAdmin";
-            password = "!";
+            password = "";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -199,7 +199,7 @@ namespace CookIT
         public DataTable getUsers()
         {
             DataTable userTable = new DataTable();
-            string query = "SELECT * FROM users";
+            string query = "SELECT * FROM Users";
             if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
