@@ -40,5 +40,21 @@ namespace CookIT
             //}
 
         }
+
+        private void pbZoek_Click(object sender, EventArgs e)
+        {
+            string zoekString = tbSearch.Text;
+
+            if (zoekString != "")
+            {
+                DataTable searchedData = con.getSearchData(zoekString);
+
+                dgvVoorbeeld.DataSource = searchedData;
+            }
+            else
+            {
+                MessageBox.Show("Zoekbalk leeg! Vul iets in.");
+            }
+        }
     }
 }

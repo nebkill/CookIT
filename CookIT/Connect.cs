@@ -230,13 +230,13 @@ namespace CookIT
         public DataTable getSearchData(string value)
         {
             DataTable searchDT = new DataTable();
-            string query = "SELECT * FROM Users WHERE CONCAT(`recept_naam`,`respect_desc`) like '% "+ value + "%'";
+            string query = "SELECT * FROM Recept WHERE CONCAT(`recept_naam`,`recept_desc`) like '%"+ value + "%'";
             if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
                 mda.SelectCommand = new MySqlCommand(query, connection);
                 mda.Fill(searchDT);
-                CloseConnection()
+                CloseConnection();
             }
             return searchDT;
         }
