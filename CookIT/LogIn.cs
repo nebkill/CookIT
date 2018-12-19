@@ -85,7 +85,7 @@ namespace CookIT
                 for (int i = 0; i < mg.getUsers().Rows.Count; i++)
                 {
 
-                    if (user != mg.getUsers().Rows[i][2].ToString())
+                    if (user != mg.getUsers().Rows[i][1].ToString())
                     {
                         MessageBox.Show("User name is incorrect!");
                         ClearTexts(user, pass);
@@ -102,7 +102,7 @@ namespace CookIT
                         }
 
                         //check password is correct 
-                        else if (pass != mg.getUsers().Rows[i][3].ToString()) 
+                        else if (pass != mg.getUsers().Rows[i][2].ToString()) 
                         {
                             MessageBox.Show("Password is incorrect");
                             return false;
