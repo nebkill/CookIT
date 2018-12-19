@@ -32,10 +32,10 @@
             // 
             // Module_Home
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Name = "Module_Home";
-            this.Size = new System.Drawing.Size(640, 487);
+            this.Size = new System.Drawing.Size(1260, 630);
             this.ResumeLayout(false);
 
         }
