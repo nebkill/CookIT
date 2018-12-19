@@ -204,5 +204,23 @@ namespace CookIT
             }
             return userTable;
         }
+        public void registerUser(LogIn log)
+        {
+            string query = "INSERT INTO users (UID,PASS,Email.Voornaam,Achternaam,Rol) VALUES (?uid.?pass,?email,?voornaam,?achternaam,?rol)";
+            MySqlCommand cmd = new MySqlCommand();
+            cmd.CommandText = query;
+            cmd.Connection = connection;
+
+            cmd.Parameters.Add("?uid", MySqlDbType.VarChar).Value = log.gebruikersnaam;
+            cmd.Parameters.Add("?pass", MySqlDbType.VarChar).Value = log.wachtwoord;
+            cmd.Parameters.Add("?email", MySqlDbType.VarChar).Value = log.email;
+            cmd.Parameters.Add("?voornaam", MySqlDbType.VarChar).Value = log.voorNaam;
+            cmd.Parameters.Add("?achternaam", MySqlDbType.VarChar).Value = log.achterNaam;
+            cmd.Parameters.Add("?rol", MySqlDbType.Int32).Value = log.rol;
+
+            cmd.ExecuteNonQuery();
+            CloseConnection();
+
+        }
     }
 }
