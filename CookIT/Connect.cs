@@ -192,5 +192,17 @@ namespace CookIT
             //return het object gevuld
             return receptByID;
         }
+        public DataTable getUsers()
+        {
+            DataTable userTable = new DataTable();
+            string query = "SELECT * FROM users";
+            if (OpenConnection())
+            {
+                MySqlDataAdapter mda = new MySqlDataAdapter();
+                mda.SelectCommand = new MySqlCommand(query, connection);
+                mda.Fill(userTable);
+            }
+            return userTable;
+        }
     }
 }
