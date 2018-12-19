@@ -52,7 +52,7 @@ namespace CookIT
         }
         public void createPDF(Recept recept)
         {
-            ph.createPDF(Recept recept);
+            ph.createPDF(recept);
         }
     }
 }
