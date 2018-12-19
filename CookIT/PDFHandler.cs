@@ -17,7 +17,6 @@ namespace CookIT
         public void createPDF(Recept recept)
         {
             doc.Info.Title = recept.naam;
-           
             PdfPage page = doc.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page);
             XFont font = new XFont("Verdana", 20, XFontStyle.BoldItalic);
@@ -31,6 +30,12 @@ namespace CookIT
             {
                 gfx.DrawString(" - " + recept.benodigdheden[i], smallFont, XBrushes.Black, new XRect(20, listHeight, page.Width, 40), XStringFormats.TopLeft);
                 listHeight += 12;
+            }
+            gfx.DrawString("Ingredienten", heading2Font, XBrushes.Black, new XRect(20, listHeight + 12, page.Width, 40), XStringFormats.TopLeft);
+            listHeight += 15;
+            for (int i = 0; i< recept.ingredienten.Length; i++)
+            {
+                gfx.DrawString("-", smallFont, XBrushes.Black, new XRect(20, listHeight, page.Width, 40), XStringFormats.TopCenter);
             }
             string root = @"C:\CookIT";
             string subdir = @"C:\CookIT";

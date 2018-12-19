@@ -24,9 +24,11 @@ namespace CookIT
         Connect con = new Connect();
         PDFHandler pdf = new PDFHandler();
         //Constructor
+        
         public MainForm()
         {
             InitializeComponent();
+            
         }
     }
 }

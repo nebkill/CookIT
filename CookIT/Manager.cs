@@ -58,5 +58,9 @@ namespace CookIT
         {
             return con.getUsers();
         }
+        public void registerUser(LogIn log)
+        {
+            con.registerUser(log);
+        }
     }
 }

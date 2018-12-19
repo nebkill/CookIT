@@ -25,6 +25,7 @@ namespace CookIT
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
 
             connection = new MySqlConnection(connectionString);
+            CloseConnection();
         }
         //gebruik deze method om de database connectie te openen
         public bool OpenConnection()
@@ -113,6 +114,7 @@ namespace CookIT
                 MySqlDataAdapter mda = new MySqlDataAdapter();
                 mda.SelectCommand = new MySqlCommand(query, connection);
                 mda.Fill(dt);
+                CloseConnection();
             }
             return dt;
         }
@@ -157,6 +159,7 @@ namespace CookIT
                 MySqlDataAdapter mda = new MySqlDataAdapter();
                 mda.SelectCommand = new MySqlCommand(query, connection);
                 mda.Fill(dtTopTen);
+                CloseConnection();
             }
             return dtTopTen;
         }
@@ -188,6 +191,7 @@ namespace CookIT
                 }
                 //Store alle data ban die regel via een reader in het object
                 receptByID = new Recept(Convert.ToInt32(reader["ID"]), reader["recept_naam"].ToString(), reader["recept_desc"].ToString(), reader["recept_auteur"].ToString(), reader["recept_video"].ToString(), Convert.ToInt32(reader["recept_rating"]), reader["recept_dieet"].ToString(), benodigdheden, reader["recept_image"].ToString(), ingredienten, stappen);
+                CloseConnection();
             }
             //return het object gevuld
             return receptByID;
@@ -201,6 +205,7 @@ namespace CookIT
                 MySqlDataAdapter mda = new MySqlDataAdapter();
                 mda.SelectCommand = new MySqlCommand(query, connection);
                 mda.Fill(userTable);
+                CloseConnection();
             }
             return userTable;
         }
