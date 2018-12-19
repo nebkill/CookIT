@@ -15,6 +15,9 @@ namespace CookIT
         public Module_ReceptList()
         {
             InitializeComponent();
+
+            List<Recept> receptList = new List<Recept>();
+
         }
     }
 }
