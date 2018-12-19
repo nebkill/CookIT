@@ -14,22 +14,22 @@ namespace CookIT
     class PDFHandler
     {
         PdfDocument doc = new PdfDocument();
-        public void createPDF()
+        public void createPDF(Recept recept)
         {
-            doc.Info.Title = "Recept";
-            string[] benod = new string[] {"Je","dikke","Bolle","Moeder","is","Kaal"};
+            doc.Info.Title = recept.naam;
+           
             PdfPage page = doc.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page);
             XFont font = new XFont("Verdana", 20, XFontStyle.BoldItalic);
             XFont smallFont = new XFont("Verdana", 11, XFontStyle.Regular);
             XFont heading2Font = new XFont("Verdana", 14, XFontStyle.Bold);
-            gfx.DrawString("Creme Brullee", font, XBrushes.Black, new XRect(0,10 , page.Width, 40), XStringFormats.TopCenter);
+            gfx.DrawString(recept.naam, font, XBrushes.Black, new XRect(0,10 , page.Width, 40), XStringFormats.TopCenter);
             gfx.DrawString("________________________________________________________________________", smallFont, XBrushes.Black, new XRect(0, 25, page.Width, 40), XStringFormats.TopCenter);
             gfx.DrawString("Benodigdheden", heading2Font, XBrushes.Black, new XRect(20, 50, page.Width, 40), XStringFormats.TopLeft);
             int listHeight = 70;
-            for(int i = 0; i < benod.Length; i++)
+            for(int i = 0; i < recept.benodigdheden.Length; i++)
             {
-                gfx.DrawString(" - " + benod[i], smallFont, XBrushes.Black, new XRect(20, listHeight, page.Width, 40), XStringFormats.TopLeft);
+                gfx.DrawString(" - " + recept.benodigdheden[i], smallFont, XBrushes.Black, new XRect(20, listHeight, page.Width, 40), XStringFormats.TopLeft);
                 listHeight += 12;
             }
             string root = @"C:\CookIT";

@@ -10,6 +10,7 @@ namespace CookIT
     class Manager
     {
         Connect con = new Connect();
+        PDFHandler ph = new PDFHandler();
         /**
          * Gebruik deze functie om met de database to communiceren om 
          * nieuwe recepten aan de recepten table toe te voegen.
@@ -48,6 +49,10 @@ namespace CookIT
         public Recept getRecept(int id)
         {
             return con.getRecept(id);
+        }
+        public void createPDF(Recept recept)
+        {
+            ph.createPDF(Recept recept);
         }
     }
 }

@@ -27,9 +27,6 @@ namespace CookIT
         public MainForm()
         {
             InitializeComponent();
-            //Gebruik dit om de connectie te testen.
-            //con.TestCon();
-            pdf.createPDF();
         }
     }
 }
