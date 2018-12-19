@@ -227,5 +227,18 @@ namespace CookIT
             CloseConnection();
 
         }
+        public DataTable getSearchData(string value)
+        {
+            DataTable searchDT = new DataTable();
+            string query = "SELECT * FROM Users WHERE CONCAT(`recept_naam`,`respect_desc`) like '% "+ value + "%'";
+            if (OpenConnection())
+            {
+                MySqlDataAdapter mda = new MySqlDataAdapter();
+                mda.SelectCommand = new MySqlCommand(query, connection);
+                mda.Fill(searchDT);
+                CloseConnection()
+            }
+            return searchDT;
+        }
     }
 }

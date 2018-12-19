@@ -62,5 +62,9 @@ namespace CookIT
         {
             con.registerUser(log);
         }
+        public DataTable searchData(string value)
+        {
+            return con.getSearchData(value);
+        }
     }
 }
