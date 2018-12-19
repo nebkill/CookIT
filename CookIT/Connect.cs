@@ -1,10 +1,12 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CookIT
 {
@@ -14,10 +16,10 @@ namespace CookIT
         MySqlConnection connection;
         public Connect()
         {
-            server = "";
-            database = "";
-            uid = "";
-            password = "";
+            server = "cookitapp.eu";
+            database = "CookItApp";
+            uid = "CookITAdmin";
+            password = "!";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -34,7 +36,7 @@ namespace CookIT
             }
             catch (MySqlException ex)
             {
-                Debug.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
 
             }
             return false;
@@ -49,14 +51,146 @@ namespace CookIT
             }
             catch (MySqlException ex)
             {
-                Debug.WriteLine(ex.ToString());
+                MessageBox.Show(ex.ToString());
                 return false;
             }
         }
         //Insert een recept naar de table Recepten
         public void insertRecept(Recept recept)
         {
-            //Queries en commands enzo.
+            string readCommand = "INSERT INTO recepten (recept_naam,recept_desc,recept_auteur,recept_video,recept_rating,recept_people,recept_average,recept_dieet,recept_benodigdheden,recept_image,recept_ingredienten,recept_stappen) VALUES (?naam,?desc,?auteur,?video,?rating,?people,?average,?dieet,?benodigdheden,?image,?ingredienten,?stappen);";
+            if (OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = readCommand;
+
+                StringBuilder sbStappen = new StringBuilder();
+                for (int i = 0; i < recept.stappen.Count; i++)
+                {
+                    sbStappen.Append("-").Append(recept.stappen[i]);
+                }
+                StringBuilder sbBenodigdheden = new StringBuilder();
+                for (int i = 0; i < recept.benodigdheden.Length; i++)
+                {
+                    sbBenodigdheden.Append("-").Append(recept.benodigdheden[i]);
+                }
+                StringBuilder sbIngredienten = new StringBuilder();
+                for (int i = 0; i < recept.ingredienten.Length; i++)
+                {
+                    sbIngredienten.Append("-").Append(recept.ingredienten[i]);
+                }
+                //stappen.Join("-", recept.stappen.ToArray());
+                cmd.Parameters.Add("?naam", MySqlDbType.VarChar).Value = recept.naam;
+                cmd.Parameters.Add("?desc", MySqlDbType.VarChar).Value = recept.desc;
+                cmd.Parameters.Add("?auteur", MySqlDbType.VarChar).Value = recept.auteur;
+                cmd.Parameters.Add("?video", MySqlDbType.VarChar).Value = recept.video;
+                cmd.Parameters.Add("?rating", MySqlDbType.Int32).Value = recept.rating;
+                cmd.Parameters.Add("?people", MySqlDbType.VarChar).Value = 0;
+                cmd.Parameters.Add("?average", MySqlDbType.Float).Value = 0F;
+                cmd.Parameters.Add("?dieet", MySqlDbType.VarChar).Value = recept.dieet;
+                cmd.Parameters.Add("?benodigdheden", MySqlDbType.VarChar).Value = sbBenodigdheden;
+                cmd.Parameters.Add("?image", MySqlDbType.VarChar).Value = recept.image;
+                cmd.Parameters.Add("?ingredienten", MySqlDbType.VarChar).Value = sbIngredienten.ToString();
+                cmd.Parameters.Add("?stappen", MySqlDbType.VarChar).Value = sbStappen.ToString();
+
+                cmd.ExecuteNonQuery();
+
+                CloseConnection();
+            }
+        }
+
+        /*
+         * Vraag alle recepten op en store deze in een DataTable
+         * Returns: DataTable
+         */
+        public DataTable getRecepten()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT * FROM recepten";
+            if (OpenConnection())
+            {
+                MySqlDataAdapter mda = new MySqlDataAdapter();
+                mda.SelectCommand = new MySqlCommand(query, connection);
+                mda.Fill(dt);
+            }
+            return dt;
+        }
+        /*
+         * Gebuik dit om de connectie te testen
+         * 
+         * public void TestCon()
+         * {
+         *    if (OpenConnection())
+         *   {
+         *       MessageBox.Show("Connection created\n\n" + connection.State);
+         *   }
+         *   else
+         *   {
+         *        MessageBox.Show("Conn Not Established");
+         *   }
+        }*/
+
+        /*
+         * Updated van de rating van een recept doormiddel van de ID van een recept en de rating die doorgegeven doormiddel van de amount tussen 1 en 5
+         */
+        public void updateRating(int ID, int amount)
+        {
+            string query = "UPDATE TABLE recepten SET recept_rating= recept_rating + " + amount + ",recept_peoplerated = recept_peoplerated + 1, recept_ratingaverage = recept_rating/recept_peoplerated WHERE recept_ID=" + ID;
+            if (OpenConnection())
+            {
+                MySqlCommand cmd = new MySqlCommand(query, connection);
+                cmd.ExecuteNonQuery();
+                CloseConnection();
+            }
+        }
+        /*
+         * Aanvragen van top 10 recepten gebaseerd op de Average van alle recepten | TotalVoteScore / PeopleWhoVoted
+         * Returned : DataTable;
+        */
+        public DataTable getTopTen()
+        {
+            DataTable dtTopTen = new DataTable();
+            string query = "SELECT FROm recepten WHERE ID NOT IN(SELECT TOP 10 ID FROM recepten ORDER BY recept_ratingaverage)";
+            if (OpenConnection())
+            {
+                MySqlDataAdapter mda = new MySqlDataAdapter();
+                mda.SelectCommand = new MySqlCommand(query, connection);
+                mda.Fill(dtTopTen);
+            }
+            return dtTopTen;
+        }
+
+        /*
+         * single recept getter voor receptlistview();
+         * Returned: Recept;
+         * Zoek in de DB voor het recept door middel van de ID die meegegeven word in het recept zelf.
+        */
+        public Recept getRecept(int id)
+        {
+            Recept receptByID = new Recept();
+            string query = "SELECT row FROM recepten WHERE ID=?ID";
+            MySqlCommand cmd = new MySqlCommand(query, connection);
+            cmd.Parameters.Add("?ID", MySqlDbType.Int32).Value = id;
+            MySqlDataReader reader = cmd.ExecuteReader();
+            //reader loop die er voor gaat zorgen dat alle data gestored gaat worden in een Recept Object
+            while (reader.Read())
+            {
+
+                string[] benodigdheden = reader["recept_benodigdheden"].ToString().Split('-');
+                string[] ingredienten = reader["recept_ingredienten"].ToString().Split('-');
+                string[] stappenArray = reader["recept_stappen"].ToString().Split('-');
+                
+                List<string> stappen = new List<string>();
+                foreach (string item in stappenArray)
+                {
+                    stappen.Add(item);
+                }
+                //Store alle data ban die regel via een reader in het object
+                receptByID = new Recept(Convert.ToInt32(reader["ID"]), reader["recept_naam"].ToString(), reader["recept_desc"].ToString(), reader["recept_auteur"].ToString(), reader["recept_video"].ToString(), Convert.ToInt32(reader["recept_rating"]), reader["recept_dieet"].ToString(), benodigdheden, reader["recept_image"].ToString(), ingredienten, stappen);
+            }
+            //return het object gevuld
+            return receptByID;
         }
     }
 }

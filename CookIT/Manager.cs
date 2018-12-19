@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,37 @@ namespace CookIT
         public void insertRecept(Recept recept)
         {
             con.insertRecept(recept);
+        }
+        /*
+         * Update Rating doormiddel vna de ID mee te geven van het recept en de rating(1/5) via de amount parameter
+         */
+        public void updateRating(int ID, int amount)
+        {
+            con.updateRating(ID,amount);
+        }
+        /*
+         * Verkrijg een datatable met de top tien gebasseerd op de rating van: TotalRating/People = AverageRating;
+         * Returns: DataTable
+         */
+        public DataTable getTopTen()
+        {
+            return con.getTopTen();
+        }
+        /*
+         * Verkrijg alle recepten van de database
+         * Returns: DataTable
+         */
+        public DataTable getRecepten()
+        {
+            return con.getRecepten();
+        }
+        /*
+         * Verkrijg het recept doormiddel met het doorsturen van het recept weer te storen in het object.
+         * Returns: Recept;
+         */
+        public Recept getRecept(int id)
+        {
+            return con.getRecept(id);
         }
     }
 }

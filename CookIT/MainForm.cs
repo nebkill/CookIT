@@ -21,13 +21,15 @@ namespace CookIT
         Module_ReceptAdd rAdd = new Module_ReceptAdd();
         Module_Search search = new Module_Search();
         Panel panel;
-
+        Connect con = new Connect();
+        PDFHandler pdf = new PDFHandler();
         //Constructor
         public MainForm()
         {
             InitializeComponent();
+            //Gebruik dit om de connectie te testen.
+            //con.TestCon();
+            pdf.createPDF();
         }
-
-
     }
 }

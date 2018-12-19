@@ -9,11 +9,12 @@ namespace CookIT
     class Recept
     {
         //Aanmaken fields en deze fields getters en setters geven
+        public int id { get; set; }
         public string naam { get; set; }
         public string desc { get; set; }
         public string auteur { get; set; }
         public string video { get; set; }
-        public string rating { get; set; }
+        public int rating { get; set; }
         public string dieet { get; set; }
         public string[] benodigdheden { get; set; }
         public string image { get; set; }
@@ -21,8 +22,13 @@ namespace CookIT
         public List<string> stappen { get; set; }
 
         //Constructor
-        public Recept(string naam, string desc, string auteur, string video, string rating, string dieet, string[] benodigdheden, string image, string[] ingredienten, List<string> stappen)
+        public Recept()
         {
+            //empty recept;
+        }
+        public Recept(int id,string naam, string desc, string auteur, string video, int rating, string dieet, string[] benodigdheden, string image, string[] ingredienten, List<string> stappen)
+        {
+            this.id = id;
             this.naam = naam;
             this.desc = desc;
             this.auteur = auteur;
