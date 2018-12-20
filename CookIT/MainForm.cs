@@ -31,11 +31,40 @@ namespace CookIT
         public MainForm()
         {
             InitializeComponent();
+
             stappen.Add("LOL");
             stappen.Add("Jemoeder");
             Recept recept = new Recept(1, "Mike's Moeder", "Ze is Heel Dik", "COOKIT", @"C:\Iets\Video\", 0, "Low_Carb", benod,@"C:\Iets\iets" , ingre, stappen);
             pdf.createPDF(recept);
 
+
+
+            //string user = "username";
+            //string pass = "wachtwoord1";
+
+            //LogIn inlog = new LogIn(user, pass);
+
+            //if (tbGebruikersNaam.Text != "" && tbWachtwoord.Text = "")
+            //{
+            //    inlog.IsLoggedIn(inlog.gebruikersnaam, inlog.wachtwoord);
+            //}
+
+        }
+
+        private void pbZoek_Click(object sender, EventArgs e)
+        {
+            string zoekString = tbSearch.Text;
+
+            if (zoekString != "")
+            {
+                DataTable searchedData = con.getSearchData(zoekString);
+
+                dgvVoorbeeld.DataSource = searchedData;
+            }
+            else
+            {
+                MessageBox.Show("Zoekbalk leeg! Vul iets in.");
+            }
         }
     }
 }

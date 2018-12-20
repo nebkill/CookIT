@@ -10,6 +10,7 @@ namespace CookIT
 {
     class LogIn
     {
+        //aanmaken van variabelen en objecten
         Manager mg = new Manager();
         public string gebruikersnaam { get; set; }
         public string wachtwoord { get; set; }
@@ -17,7 +18,7 @@ namespace CookIT
         public string voorNaam { get; set; }
         public string achterNaam { get; set; }
         public int rol { get; set; }
-
+        //constructor
         public LogIn(string gebruikersnaam, string wachtwoord, string email, string voorNaam, string achterNaam, int rol)
         {
             this.gebruikersnaam = gebruikersnaam;
@@ -27,12 +28,13 @@ namespace CookIT
             this.achterNaam = achterNaam;
             this.rol = rol;
         }
+        //log in constructor
         public LogIn(string gebruikersnaam, string wachtwoord)
         {
             this.gebruikersnaam = gebruikersnaam;
             this.wachtwoord = wachtwoord;
         }
-        //validate string 
+        //string valideren
         private bool StringValidator(string input)
         {
             string pattern = "[^a-zA-Z]";
@@ -45,7 +47,7 @@ namespace CookIT
                 return false;
             }
         }
-        //validate integer 
+        //integer valideren 
         private bool IntegerValidator(string input)
         {
             string pattern = "[^0-9]";
@@ -58,19 +60,19 @@ namespace CookIT
                 return false;
             }
         }
-        //clear user inputs 
+        //haal ingevulde strings leeg 
         private void ClearTexts(string user, string pass)
         {
             user = String.Empty;
             pass = String.Empty;
         }
         
-        //method to check if eligible to be logged in 
+        //log in methode 
         internal bool IsLoggedIn(string user, string pass)
         {
           
 
-            //check user name empty 
+            //checken of gebruikersnaam leeg is  
             if (string.IsNullOrEmpty(user))
             {
                 MessageBox.Show("Enter the user name!");
@@ -78,7 +80,7 @@ namespace CookIT
 
             }
 
-            //check user name is correct 
+            //checken of gebruikersnaam correct is
             else
             {
                 for (int i = 0; i < mg.getUsers().Rows.Count; i++)
@@ -91,7 +93,7 @@ namespace CookIT
                         return false;
                     }
 
-                    //check password is empty 
+                    //checken of wachtwoord leeg is 
                     else
                     {
                         if (string.IsNullOrEmpty(pass))
@@ -100,7 +102,7 @@ namespace CookIT
                             return false;
                         }
 
-                        //check password is correct 
+                        //checken of wachtwoord correct is 
                         else if (pass != mg.getUsers().Rows[i][2].ToString()) 
                         {
                             MessageBox.Show("Password is incorrect");
