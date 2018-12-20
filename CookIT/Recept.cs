@@ -16,9 +16,9 @@ namespace CookIT
         public string video { get; set; }
         public int rating { get; set; }
         public string dieet { get; set; }
-        public string[] benodigdheden { get; set; }
+        public List<string> benodigdheden { get; set; }
         public string image { get; set; }
-        public string[] ingredienten { get; set; }
+        public List<string> ingredienten { get; set; }
         public List<string> stappen { get; set; }
 
         //Constructor
@@ -26,7 +26,7 @@ namespace CookIT
         {
             //empty recept;
         }
-        public Recept(int id,string naam, string desc, string auteur, string video, int rating, string dieet, string[] benodigdheden, string image, string[] ingredienten, List<string> stappen)
+        public Recept(int id,string naam, string desc, string auteur, string video, int rating, string dieet, List<string> benodigdheden, string image, List<string> ingredienten, List<string> stappen)
         {
             this.id = id;
             this.naam = naam;

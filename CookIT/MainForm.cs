@@ -24,22 +24,17 @@ namespace CookIT
         Connect con = new Connect();
         PDFHandler pdf = new PDFHandler();
         //Constructor
+        public string[] benod= new string[] {"LOL","NEE","LMAO" };
+        public string[] ingre = new string[] {"ANDERS", "GEAARD","LOL"};
+        List<string> stappen = new List<string>(); 
         
         public MainForm()
         {
             InitializeComponent();
-
-            string user = "username1";
-            string pass = "wachtwoord1";
-            LogIn inlog = new LogIn(user, pass);
-            if(inlog.IsLoggedIn(inlog.gebruikersnaam, inlog.wachtwoord))
-            {
-                MessageBox.Show("ingelogd");
-            }
-            else
-            {
-                MessageBox.Show("incorrect");
-            }
+            stappen.Add("LOL");
+            stappen.Add("Jemoeder");
+            Recept recept = new Recept(1, "Mike's Moeder", "Ze is Heel Dik", "COOKIT", @"C:\Iets\Video\", 0, "Low_Carb", benod,@"C:\Iets\iets" , ingre, stappen);
+            pdf.createPDF(recept);
 
         }
     }

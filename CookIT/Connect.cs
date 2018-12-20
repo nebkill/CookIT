@@ -67,19 +67,19 @@ namespace CookIT
                 cmd.CommandText = readCommand;
 
                 StringBuilder sbStappen = new StringBuilder();
-                for (int i = 0; i < recept.stappen.Count; i++)
+                foreach(string item in recept.stappen)
                 {
-                    sbStappen.Append("-").Append(recept.stappen[i]);
+                    sbStappen.Append("-").Append(item);
                 }
                 StringBuilder sbBenodigdheden = new StringBuilder();
-                for (int i = 0; i < recept.benodigdheden.Length; i++)
+                foreach (string item in recept.benodigdheden)
                 {
-                    sbBenodigdheden.Append("-").Append(recept.benodigdheden[i]);
+                    sbBenodigdheden.Append("-").Append(item);
                 }
                 StringBuilder sbIngredienten = new StringBuilder();
-                for (int i = 0; i < recept.ingredienten.Length; i++)
+                foreach (string item in recept.ingredienten)
                 {
-                    sbIngredienten.Append("-").Append(recept.ingredienten[i]);
+                    sbIngredienten.Append("-").Append(item);
                 }
                 //stappen.Join("-", recept.stappen.ToArray());
                 cmd.Parameters.Add("?naam", MySqlDbType.VarChar).Value = recept.naam;
@@ -185,12 +185,22 @@ namespace CookIT
                 string[] stappenArray = reader["recept_stappen"].ToString().Split('-');
                 
                 List<string> stappen = new List<string>();
+                List<string> ben = new List<string>();
+                List<string> ingre = new List<string>();
                 foreach (string item in stappenArray)
                 {
                     stappen.Add(item);
                 }
+                foreach(string item in benodigdheden)
+                {
+                    ben.Add(item);
+                }
+                foreach(string item in ingredienten)
+                {
+                    ingre.Add(item);
+                }
                 //Store alle data ban die regel via een reader in het object
-                receptByID = new Recept(Convert.ToInt32(reader["ID"]), reader["recept_naam"].ToString(), reader["recept_desc"].ToString(), reader["recept_auteur"].ToString(), reader["recept_video"].ToString(), Convert.ToInt32(reader["recept_rating"]), reader["recept_dieet"].ToString(), benodigdheden, reader["recept_image"].ToString(), ingredienten, stappen);
+                receptByID = new Recept(Convert.ToInt32(reader["ID"]), reader["recept_naam"].ToString(), reader["recept_desc"].ToString(), reader["recept_auteur"].ToString(), reader["recept_video"].ToString(), Convert.ToInt32(reader["recept_rating"]), reader["recept_dieet"].ToString(), ben, reader["recept_image"].ToString(), ingre, stappen);
                 CloseConnection();
             }
             //return het object gevuld
@@ -236,7 +246,7 @@ namespace CookIT
                 MySqlDataAdapter mda = new MySqlDataAdapter();
                 mda.SelectCommand = new MySqlCommand(query, connection);
                 mda.Fill(searchDT);
-                CloseConnection()
+                CloseConnection();
             }
             return searchDT;
         }
