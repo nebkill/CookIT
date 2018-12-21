@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CookIT
 {
@@ -49,7 +50,14 @@ namespace CookIT
                 Directory.CreateDirectory(root);
             }
             string filename = @"C:\CookIt\" + recept.naam + "Recept.pdf";
-            doc.Save(filename);
+            try
+            {
+                doc.Save(filename);
+            }
+            catch (IOException io)
+            {
+                MessageBox.Show("Please close your previous window using this file");
+            }
             Process.Start(filename);
         }
     }

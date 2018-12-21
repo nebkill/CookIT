@@ -26,15 +26,23 @@ namespace CookIT
         //Constructor
         public string[] benod= new string[] {"LOL","NEE","LMAO" };
         public string[] ingre = new string[] {"ANDERS", "GEAARD","LOL"};
-        List<string> stappen = new List<string>(); 
-        
+        List<string> stappen = new List<string>();
+        List<string> ben = new List<string>();
+        List<string> ing = new List<string>();
         public MainForm()
         {
             InitializeComponent();
-
+            foreach (string item in benod)
+            {
+                ben.Add(item);
+            }
+            foreach(string item in ingre)
+            {
+                ing.Add(item);
+            }
             stappen.Add("LOL");
             stappen.Add("Jemoeder");
-            Recept recept = new Recept(1, "Mike's Moeder", "Ze is Heel Dik", "COOKIT", @"C:\Iets\Video\", 0, "Low_Carb", benod,@"C:\Iets\iets" , ingre, stappen);
+            Recept recept = new Recept(1, "Mike's Moeder", "Ze is Heel Dik", "COOKIT", @"C:\Iets\Video\", 0, "Low_Carb", ben,@"C:\Iets\iets" , ing, stappen);
             pdf.createPDF(recept);
 
 
