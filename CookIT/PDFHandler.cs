@@ -15,6 +15,7 @@ namespace CookIT
     class PDFHandler
     {
         PdfDocument doc = new PdfDocument();
+        LogHandler er = new LogHandler();
         public void createPDF(Recept recept)
         {
             doc.Info.Title = recept.naam;
@@ -51,14 +52,14 @@ namespace CookIT
                 gfx.DrawString("O     " + recept.stappen[i], smallFont, XBrushes.Black, new XRect(40, listHeight, page.Width, 40), XStringFormats.TopLeft);
                 listHeight += 12;
             }
-            string root = @"C:\CookIT";
-            string subdir = @"C:\CookIT";
+            string root = @"C:\CookIT\Recepten\";
+           
             // If directory does not exist, create it. 
             if (!Directory.Exists(root))
             {
                 Directory.CreateDirectory(root);
             }
-            string filename = @"C:\CookIt\" + recept.naam + " Recept.pdf";
+            string filename = @"C:\CookIT\Recepten\" + recept.naam + " Recept.pdf";
             try
             {
                 doc.Save(filename);
@@ -68,6 +69,7 @@ namespace CookIT
             catch (IOException io)
             {
                 MessageBox.Show("Please close your previous window using this file");
+                er.AddLineToLog(io.Message);
             }
             Process.Start(filename);
         }

@@ -22,15 +22,23 @@ namespace CookIT
         Module_Search search = new Module_Search();
         Panel panel;
         Connect con = new Connect();
+        LogHandler er = new LogHandler();
+
+        //Anything Else
         PDFHandler pdf = new PDFHandler();
+        List<string> ingr = new List<string>();
+        List<string> ben = new List<string>();
+        List<string> stap = new List<string>();
+        
         //Constructor
         
         public MainForm()
         {
+            Recept recept = new Recept(0, "Hullo", "Hello something \n something \n", "Micha Janssen", "", 0, "Low Carb", ben, "", ingr, stap);
             InitializeComponent();
-            
-
-
+            er.createDirectory();
+            er.CreateLogFile();
+            pdf.createPDF(recept);
 
             //string user = "username";
             //string pass = "wachtwoord1";
