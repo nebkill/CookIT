@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
 
 namespace CookIT
 {
@@ -29,9 +30,10 @@ namespace CookIT
         List<string> ingr = new List<string>();
         List<string> ben = new List<string>();
         List<string> stap = new List<string>();
-        
+
+
         //Constructor
-        
+
         public MainForm()
         {
             Recept recept = new Recept(0, "Hullo", "Hello something \n something \n", "Micha Janssen", "", 0, "Low Carb", ben, "", ingr, stap);
@@ -40,17 +42,25 @@ namespace CookIT
             er.CreateLogFile();
             pdf.createPDF(recept);
 
-            //string user = "username";
-            //string pass = "wachtwoord1";
+        //    string user = "username";
+        //    string pass = "wachtwoord1";
 
-            //LogIn inlog = new LogIn(user, pass);
+        //    LogIn inlog = new LogIn(user, pass);
 
-            //if (tbGebruikersNaam.Text != "" && tbWachtwoord.Text = "")
-            //{
-            //    inlog.IsLoggedIn(inlog.gebruikersnaam, inlog.wachtwoord);
-            //}
+        //    if (tbGebruikersNaam.Text != "" && tbWachtwoord.Text = "")
+        //    {   
+        //    if (inlog.IsLoggedIn(inlog.gebruikersnaam, inlog.wachtwoord))
+        //    {
+        //            //Kijk trello voor de bijbehorende linkjes
+        //            HttpCookie myCookie = new HttpCookie("UserSettings");
+        //            myCookie.Value = "nl";
+        //            myCookie.Expires = DateTime.Now.AddDays(1d);
+        //            Response.Cookies.Add(myCookie);
+        //    }
 
-        }
+        //}
+
+    }
 
         private void pbZoek_Click(object sender, EventArgs e)
         {
