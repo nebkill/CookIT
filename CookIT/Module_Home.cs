@@ -15,6 +15,12 @@ namespace CookIT
         public Module_Home()
         {
             InitializeComponent();
+            DataFill();
+        }
+
+        public void DataFill()
+        {
+            
         }
     }
 }
