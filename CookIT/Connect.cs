@@ -69,17 +69,17 @@ namespace CookIT
                 StringBuilder sbStappen = new StringBuilder();
                 foreach(string item in recept.stappen)
                 {
-                    sbStappen.Append("-").Append(item);
+                    sbStappen.Append("*").Append(item);
                 }
                 StringBuilder sbBenodigdheden = new StringBuilder();
                 foreach (string item in recept.benodigdheden)
                 {
-                    sbBenodigdheden.Append("-").Append(item);
+                    sbBenodigdheden.Append("*").Append(item);
                 }
                 StringBuilder sbIngredienten = new StringBuilder();
                 foreach (string item in recept.ingredienten)
                 {
-                    sbIngredienten.Append("-").Append(item);
+                    sbIngredienten.Append("*").Append(item);
                 }
                 //stappen.Join("-", recept.stappen.ToArray());
                 cmd.Parameters.Add("?naam", MySqlDbType.VarChar).Value = recept.naam;
@@ -153,7 +153,7 @@ namespace CookIT
         public DataTable getTopTen()
         {
             DataTable dtTopTen = new DataTable();
-            string query = "SELECT * FROM recepten WHERE ID NOT IN(SELECT TOP 5 ID FROM recepten ORDER BY recept_ratingaverage)";
+            string query = "SELECT * FROM recept WHERE recept.recept_ratingaverage LIMIT 10;";//"SELECT FROm recepten WHERE ID NOT IN(SELECT TOP 10 ID FROM recepten ORDER BY recept_ratingaverage)";
             if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
@@ -180,9 +180,9 @@ namespace CookIT
             while (reader.Read())
             {
 
-                string[] benodigdheden = reader["recept_benodigdheden"].ToString().Split('-');
-                string[] ingredienten = reader["recept_ingredienten"].ToString().Split('-');
-                string[] stappenArray = reader["recept_stappen"].ToString().Split('-');
+                string[] benodigdheden = reader["recept_benodigdheden"].ToString().Split('*');
+                string[] ingredienten = reader["recept_ingredienten"].ToString().Split('*');
+                string[] stappenArray = reader["recept_stappen"].ToString().Split('*');
                 
                 List<string> stappen = new List<string>();
                 List<string> ben = new List<string>();
