@@ -153,7 +153,7 @@ namespace CookIT
         public DataTable getTopTen()
         {
             DataTable dtTopTen = new DataTable();
-            string query = "SELECT FROm recepten WHERE ID NOT IN(SELECT TOP 10 ID FROM recepten ORDER BY recept_ratingaverage)";
+            string query = "SELECT * FROM recept WHERE recept.recept_ratingaverage LIMIT 10;";//"SELECT FROm recepten WHERE ID NOT IN(SELECT TOP 10 ID FROM recepten ORDER BY recept_ratingaverage)";
             if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
