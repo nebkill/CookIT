@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Module_Home));
             this.tlpCatRecepten = new System.Windows.Forms.TableLayoutPanel();
             this.pbRecept1 = new System.Windows.Forms.PictureBox();
             this.pbRecept2 = new System.Windows.Forms.PictureBox();
@@ -42,6 +44,7 @@
             this.lvRating3 = new System.Windows.Forms.ListView();
             this.lvRating4 = new System.Windows.Forms.ListView();
             this.lbCategoryTitle = new System.Windows.Forms.Label();
+            this.ilRating = new System.Windows.Forms.ImageList(this.components);
             this.tlpCatRecepten.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept2)).BeginInit();
@@ -56,6 +59,8 @@
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.82033F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 197F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 184F));
+            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
+            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 246F));
             this.tlpCatRecepten.Controls.Add(this.pbRecept1, 0, 1);
             this.tlpCatRecepten.Controls.Add(this.pbRecept2, 1, 1);
             this.tlpCatRecepten.Controls.Add(this.pbRecept3, 2, 1);
@@ -86,15 +91,21 @@
             this.pbRecept1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbRecept1.Name = "pbRecept1";
             this.pbRecept1.Size = new System.Drawing.Size(207, 152);
+            this.pbRecept1.Size = new System.Drawing.Size(275, 187);
+            this.pbRecept1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRecept1.TabIndex = 0;
             this.pbRecept1.TabStop = false;
             // 
             // pbRecept2
             // 
+
             this.pbRecept2.Location = new System.Drawing.Point(213, 30);
             this.pbRecept2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pbRecept2.Name = "pbRecept2";
             this.pbRecept2.Size = new System.Drawing.Size(197, 152);
+            this.pbRecept2.Location = new System.Drawing.Point(284, 38);
+            this.pbRecept2.Name = "pbRecept2";
+            this.pbRecept2.Size = new System.Drawing.Size(262, 187);
             this.pbRecept2.TabIndex = 1;
             this.pbRecept2.TabStop = false;
             // 
@@ -102,6 +113,7 @@
             // 
             this.pbRecept3.Location = new System.Drawing.Point(414, 30);
             this.pbRecept3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbRecept3.Location = new System.Drawing.Point(552, 38);
             this.pbRecept3.Name = "pbRecept3";
             this.pbRecept3.Size = new System.Drawing.Size(193, 152);
             this.pbRecept3.TabIndex = 2;
@@ -111,6 +123,7 @@
             // 
             this.pbRecept4.Location = new System.Drawing.Point(611, 30);
             this.pbRecept4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbRecept4.Location = new System.Drawing.Point(815, 38);
             this.pbRecept4.Name = "pbRecept4";
             this.pbRecept4.Size = new System.Drawing.Size(179, 152);
             this.pbRecept4.TabIndex = 3;
@@ -131,6 +144,7 @@
             this.lbTitle2.AutoSize = true;
             this.lbTitle2.Location = new System.Drawing.Point(213, 185);
             this.lbTitle2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTitle2.Location = new System.Drawing.Point(284, 228);
             this.lbTitle2.Name = "lbTitle2";
             this.lbTitle2.Size = new System.Drawing.Size(69, 13);
             this.lbTitle2.TabIndex = 5;
@@ -141,6 +155,7 @@
             this.lbTitle3.AutoSize = true;
             this.lbTitle3.Location = new System.Drawing.Point(414, 185);
             this.lbTitle3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTitle3.Location = new System.Drawing.Point(552, 228);
             this.lbTitle3.Name = "lbTitle3";
             this.lbTitle3.Size = new System.Drawing.Size(69, 13);
             this.lbTitle3.TabIndex = 6;
@@ -151,6 +166,7 @@
             this.lbTitle4.AutoSize = true;
             this.lbTitle4.Location = new System.Drawing.Point(611, 185);
             this.lbTitle4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbTitle4.Location = new System.Drawing.Point(815, 228);
             this.lbTitle4.Name = "lbTitle4";
             this.lbTitle4.Size = new System.Drawing.Size(69, 13);
             this.lbTitle4.TabIndex = 7;
@@ -162,6 +178,8 @@
             this.lvRating1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvRating1.Name = "lvRating1";
             this.lvRating1.Size = new System.Drawing.Size(207, 44);
+            this.lvRating1.Size = new System.Drawing.Size(275, 53);
+            this.lvRating1.SmallImageList = this.ilRating;
             this.lvRating1.TabIndex = 8;
             this.lvRating1.UseCompatibleStateImageBehavior = false;
             // 
@@ -171,6 +189,9 @@
             this.lvRating2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvRating2.Name = "lvRating2";
             this.lvRating2.Size = new System.Drawing.Size(197, 44);
+            this.lvRating2.Location = new System.Drawing.Point(284, 291);
+            this.lvRating2.Name = "lvRating2";
+            this.lvRating2.Size = new System.Drawing.Size(262, 53);
             this.lvRating2.TabIndex = 9;
             this.lvRating2.UseCompatibleStateImageBehavior = false;
             // 
@@ -178,15 +199,16 @@
             // 
             this.lvRating3.Location = new System.Drawing.Point(414, 236);
             this.lvRating3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvRating3.Location = new System.Drawing.Point(552, 291);
             this.lvRating3.Name = "lvRating3";
             this.lvRating3.Size = new System.Drawing.Size(193, 44);
             this.lvRating3.TabIndex = 10;
             this.lvRating3.UseCompatibleStateImageBehavior = false;
             // 
             // lvRating4
-            // 
             this.lvRating4.Location = new System.Drawing.Point(611, 236);
             this.lvRating4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lvRating4.Location = new System.Drawing.Point(815, 291);
             this.lvRating4.Name = "lvRating4";
             this.lvRating4.Size = new System.Drawing.Size(180, 44);
             this.lvRating4.TabIndex = 11;
@@ -202,6 +224,12 @@
             this.lbCategoryTitle.Size = new System.Drawing.Size(149, 25);
             this.lbCategoryTitle.TabIndex = 12;
             this.lbCategoryTitle.Text = "Titel categorie";
+            // 
+            // ilRating
+            // 
+            this.ilRating.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilRating.ImageStream")));
+            this.ilRating.TransparentColor = System.Drawing.Color.Transparent;
+            this.ilRating.Images.SetKeyName(0, "Love_Heart_symbol_square.png");
             // 
             // Module_Home
             // 
@@ -237,5 +265,6 @@
         private System.Windows.Forms.ListView lvRating3;
         private System.Windows.Forms.ListView lvRating4;
         private System.Windows.Forms.Label lbCategoryTitle;
+        private System.Windows.Forms.ImageList ilRating;
     }
 }
