@@ -21,7 +21,7 @@ namespace CookIT
         Module_ReceptView rView = new Module_ReceptView();
         Module_ReceptAdd rAdd = new Module_ReceptAdd();
         Module_Search search = new Module_Search();
-        Panel panel;
+        
         Connect con = new Connect();
         LogHandler er = new LogHandler();
 
