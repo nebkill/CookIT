@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CookIT
 {
@@ -34,15 +35,45 @@ namespace CookIT
                 lbTitle3.Text = receptGet.Rows[1][2].ToString();
                 lbTitle4.Text = receptGet.Rows[1][2].ToString();
 
-                string filepath = Environment.CurrentDirectory + "..\\..\\";
+                string file = "Love_Heart_symbol_square.png";
+                string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
 
                 //pbRecept1.Show("C:\\Users\\mi_ke\\Source\\Repos\\CookIT\\CookIT\\Images\\Love_Heart_symbol_square.svg");
-                //pbRecept1.Image = Image.FromFile();
-                /*"C:\\Users\\mi_ke\\Source\\Repos\\CookIT\\CookIT\\Images\\Love_Heart_symbol_square.png"*/
+                pbRecept1.Image = Image.FromFile(filepath);
+
+                //lvRating1.;
+                 
             }
             else
             {
                 MessageBox.Show("Er zijn niet genoeg recepten");
+            }
+        }
+        public void ReceptListGen()
+        {
+            int count = dbCon.getRecepten().Rows.Count;
+            //for(int i = 0; i < count; i++)
+            //{
+                
+            //}
+            TextBox[] textBox = new TextBox[count];
+            Label[] label = new Label[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                textBox[i] = new TextBox();
+                textBox[i].Name = "n" + i;
+                textBox[i].Text = "n" + i;
+
+                label[i] = new Label();
+                label[i].Name = "n" + i;
+                label[i].Text = "n" + i;
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                this.Controls.Add(textBox[i]);
+                this.Controls.Add(label[i]);
             }
         }
     }

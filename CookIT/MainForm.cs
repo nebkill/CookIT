@@ -40,7 +40,7 @@ namespace CookIT
             InitializeComponent();
             er.createDirectory();
             er.CreateLogFile();
-            pdf.createPDF(recept);
+            //pdf.createPDF(recept);
 
 
 

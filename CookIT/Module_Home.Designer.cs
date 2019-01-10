@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Module_Home));
             this.tlpCatRecepten = new System.Windows.Forms.TableLayoutPanel();
             this.pbRecept1 = new System.Windows.Forms.PictureBox();
             this.pbRecept2 = new System.Windows.Forms.PictureBox();
@@ -42,6 +44,7 @@
             this.lvRating3 = new System.Windows.Forms.ListView();
             this.lvRating4 = new System.Windows.Forms.ListView();
             this.lbCategoryTitle = new System.Windows.Forms.Label();
+            this.ilRating = new System.Windows.Forms.ImageList(this.components);
             this.tlpCatRecepten.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept2)).BeginInit();
@@ -55,7 +58,7 @@
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.17967F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.82033F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
-            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
+            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 246F));
             this.tlpCatRecepten.Controls.Add(this.pbRecept1, 0, 1);
             this.tlpCatRecepten.Controls.Add(this.pbRecept2, 1, 1);
             this.tlpCatRecepten.Controls.Add(this.pbRecept3, 2, 1);
@@ -83,21 +86,22 @@
             // 
             this.pbRecept1.Location = new System.Drawing.Point(3, 38);
             this.pbRecept1.Name = "pbRecept1";
-            this.pbRecept1.Size = new System.Drawing.Size(276, 187);
+            this.pbRecept1.Size = new System.Drawing.Size(275, 187);
+            this.pbRecept1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRecept1.TabIndex = 0;
             this.pbRecept1.TabStop = false;
             // 
             // pbRecept2
             // 
-            this.pbRecept2.Location = new System.Drawing.Point(285, 38);
+            this.pbRecept2.Location = new System.Drawing.Point(284, 38);
             this.pbRecept2.Name = "pbRecept2";
-            this.pbRecept2.Size = new System.Drawing.Size(263, 187);
+            this.pbRecept2.Size = new System.Drawing.Size(262, 187);
             this.pbRecept2.TabIndex = 1;
             this.pbRecept2.TabStop = false;
             // 
             // pbRecept3
             // 
-            this.pbRecept3.Location = new System.Drawing.Point(554, 38);
+            this.pbRecept3.Location = new System.Drawing.Point(552, 38);
             this.pbRecept3.Name = "pbRecept3";
             this.pbRecept3.Size = new System.Drawing.Size(257, 187);
             this.pbRecept3.TabIndex = 2;
@@ -105,7 +109,7 @@
             // 
             // pbRecept4
             // 
-            this.pbRecept4.Location = new System.Drawing.Point(817, 38);
+            this.pbRecept4.Location = new System.Drawing.Point(815, 38);
             this.pbRecept4.Name = "pbRecept4";
             this.pbRecept4.Size = new System.Drawing.Size(239, 187);
             this.pbRecept4.TabIndex = 3;
@@ -123,7 +127,7 @@
             // lbTitle2
             // 
             this.lbTitle2.AutoSize = true;
-            this.lbTitle2.Location = new System.Drawing.Point(285, 228);
+            this.lbTitle2.Location = new System.Drawing.Point(284, 228);
             this.lbTitle2.Name = "lbTitle2";
             this.lbTitle2.Size = new System.Drawing.Size(91, 17);
             this.lbTitle2.TabIndex = 5;
@@ -132,7 +136,7 @@
             // lbTitle3
             // 
             this.lbTitle3.AutoSize = true;
-            this.lbTitle3.Location = new System.Drawing.Point(554, 228);
+            this.lbTitle3.Location = new System.Drawing.Point(552, 228);
             this.lbTitle3.Name = "lbTitle3";
             this.lbTitle3.Size = new System.Drawing.Size(91, 17);
             this.lbTitle3.TabIndex = 6;
@@ -141,7 +145,7 @@
             // lbTitle4
             // 
             this.lbTitle4.AutoSize = true;
-            this.lbTitle4.Location = new System.Drawing.Point(817, 228);
+            this.lbTitle4.Location = new System.Drawing.Point(815, 228);
             this.lbTitle4.Name = "lbTitle4";
             this.lbTitle4.Size = new System.Drawing.Size(91, 17);
             this.lbTitle4.TabIndex = 7;
@@ -151,21 +155,22 @@
             // 
             this.lvRating1.Location = new System.Drawing.Point(3, 291);
             this.lvRating1.Name = "lvRating1";
-            this.lvRating1.Size = new System.Drawing.Size(276, 53);
+            this.lvRating1.Size = new System.Drawing.Size(275, 53);
+            this.lvRating1.SmallImageList = this.ilRating;
             this.lvRating1.TabIndex = 8;
             this.lvRating1.UseCompatibleStateImageBehavior = false;
             // 
             // lvRating2
             // 
-            this.lvRating2.Location = new System.Drawing.Point(285, 291);
+            this.lvRating2.Location = new System.Drawing.Point(284, 291);
             this.lvRating2.Name = "lvRating2";
-            this.lvRating2.Size = new System.Drawing.Size(263, 53);
+            this.lvRating2.Size = new System.Drawing.Size(262, 53);
             this.lvRating2.TabIndex = 9;
             this.lvRating2.UseCompatibleStateImageBehavior = false;
             // 
             // lvRating3
             // 
-            this.lvRating3.Location = new System.Drawing.Point(554, 291);
+            this.lvRating3.Location = new System.Drawing.Point(552, 291);
             this.lvRating3.Name = "lvRating3";
             this.lvRating3.Size = new System.Drawing.Size(257, 53);
             this.lvRating3.TabIndex = 10;
@@ -173,7 +178,7 @@
             // 
             // lvRating4
             // 
-            this.lvRating4.Location = new System.Drawing.Point(817, 291);
+            this.lvRating4.Location = new System.Drawing.Point(815, 291);
             this.lvRating4.Name = "lvRating4";
             this.lvRating4.Size = new System.Drawing.Size(239, 53);
             this.lvRating4.TabIndex = 11;
@@ -188,6 +193,12 @@
             this.lbCategoryTitle.Size = new System.Drawing.Size(187, 29);
             this.lbCategoryTitle.TabIndex = 12;
             this.lbCategoryTitle.Text = "Titel categorie";
+            // 
+            // ilRating
+            // 
+            this.ilRating.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ilRating.ImageStream")));
+            this.ilRating.TransparentColor = System.Drawing.Color.Transparent;
+            this.ilRating.Images.SetKeyName(0, "Love_Heart_symbol_square.png");
             // 
             // Module_Home
             // 
@@ -223,5 +234,6 @@
         private System.Windows.Forms.ListView lvRating3;
         private System.Windows.Forms.ListView lvRating4;
         private System.Windows.Forms.Label lbCategoryTitle;
+        private System.Windows.Forms.ImageList ilRating;
     }
 }
