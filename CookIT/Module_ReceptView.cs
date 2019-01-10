@@ -12,9 +12,41 @@ namespace CookIT
 {
     public partial class Module_ReceptView : UserControl
     {
+        Manager mg = new Manager();
+        Recept rcpt;
         public Module_ReceptView()
         {
             InitializeComponent();
+            
+        }
+
+        private void Module_ReceptView_Load(object sender, EventArgs e)
+        {
+            StringBuilder sbStappen = new StringBuilder();
+            foreach (string item in rcpt.stappen)
+            {
+                sbStappen.Append("*").Append(item).Append("\n");
+            }
+            lblStap.Text = sbStappen.ToString();
+            StringBuilder sbBenodigdheden = new StringBuilder();
+            foreach (string item in rcpt.benodigdheden)
+            {
+                sbBenodigdheden.Append("*").Append(item).Append("\n");
+            }
+            lblBenod.Text = sbBenodigdheden.ToString();
+            StringBuilder sbIngredienten = new StringBuilder();
+            foreach (string item in rcpt.ingredienten)
+            {
+                sbIngredienten.Append("*").Append(item).Append("\n");
+            }
+            lblIngr.Text = sbBenodigdheden.ToString();
+            lblTitel.Text = rcpt.naam;
+            lblDesc.Text = rcpt.desc;
+            lblAuteur.Text += " "+ rcpt.auteur;
+        }
+        public void setRecept(Recept rpt)
+        {
+            this.rcpt = rpt;
         }
     }
 }

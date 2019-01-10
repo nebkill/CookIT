@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CookIT
 {
-    class Recept
+    public class Recept
     {
         //Aanmaken fields en deze fields getters en setters geven
         public int id { get; set; }
