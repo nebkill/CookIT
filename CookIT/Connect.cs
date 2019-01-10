@@ -19,7 +19,7 @@ namespace CookIT
             server = "cookitapp.eu";
             database = "CookItApp";
             uid = "CookITAdmin";
-            password = "DikkeLul123!";
+            password = "!";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
