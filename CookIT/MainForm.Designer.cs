@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pbBarBG = new System.Windows.Forms.PictureBox();
             this.pLoadPanel = new System.Windows.Forms.Panel();
-            this.dgvVoorbeeld = new System.Windows.Forms.DataGridView();
             this.pbTray = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
@@ -39,7 +38,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).BeginInit();
 
             this.pLoadPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVoorbeeld)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbZoek)).BeginInit();
@@ -57,21 +55,11 @@
             // pLoadPanel
             // 
             this.pLoadPanel.Location = new System.Drawing.Point(0, 49);
-            this.pLoadPanel.Controls.Add(this.dgvVoorbeeld);
             this.pLoadPanel.Location = new System.Drawing.Point(0, 60);
             this.pLoadPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pLoadPanel.Name = "pLoadPanel";
             this.pLoadPanel.Size = new System.Drawing.Size(1260, 630);
             this.pLoadPanel.TabIndex = 1;
-            // 
-            // dgvVoorbeeld
-            // 
-            this.dgvVoorbeeld.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVoorbeeld.Location = new System.Drawing.Point(94, 66);
-            this.dgvVoorbeeld.Name = "dgvVoorbeeld";
-            this.dgvVoorbeeld.RowTemplate.Height = 24;
-            this.dgvVoorbeeld.Size = new System.Drawing.Size(97, 51);
-            this.dgvVoorbeeld.TabIndex = 0;
             // 
             // pbTray
             // 
@@ -133,7 +121,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).EndInit();
 
             this.pLoadPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVoorbeeld)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbZoek)).EndInit();
