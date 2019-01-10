@@ -29,8 +29,8 @@ namespace CookIT
                 
                 lbTitle1.Text = receptGet.Rows[0][2].ToString();
                 lbTitle2.Text = receptGet.Rows[1][2].ToString();
-                lbTitle3.Text = receptGet.Rows[2][2].ToString();
-                lbTitle4.Text = receptGet.Rows[2][2].ToString();
+                //lbTitle3.Text = receptGet.Rows[2][2].ToString();
+                //lbTitle4.Text = receptGet.Rows[2][2].ToString();
 
             }
             else
