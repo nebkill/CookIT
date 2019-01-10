@@ -42,6 +42,8 @@ namespace CookIT
             er.CreateLogFile();
             pdf.createPDF(recept);
 
+
+
         //    string user = "username";
         //    string pass = "wachtwoord1";
 
@@ -64,18 +66,24 @@ namespace CookIT
 
         private void pbZoek_Click(object sender, EventArgs e)
         {
-            string zoekString = tbSearch.Text;
+            //string zoekString = tbSearch.Text;
 
-            if (zoekString != "")
-            {
-                DataTable searchedData = con.getSearchData(zoekString);
+            //if (zoekString != "")
+            //{
+            //    DataTable searchedData = con.getSearchData(zoekString);
 
-                dgvVoorbeeld.DataSource = searchedData;
-            }
-            else
-            {
-                MessageBox.Show("Zoekbalk leeg! Vul iets in.");
-            }
+            //    dgvVoorbeeld.DataSource = searchedData;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Zoekbalk leeg! Vul iets in.");
+            //}
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            var myControl = new Module_Home();
+            pLoadPanel.Controls.Add(myControl);
         }
     }
 }

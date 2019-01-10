@@ -31,11 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pbBarBG = new System.Windows.Forms.PictureBox();
             this.pLoadPanel = new System.Windows.Forms.Panel();
+            this.dgvVoorbeeld = new System.Windows.Forms.DataGridView();
             this.pbTray = new System.Windows.Forms.PictureBox();
             this.pbLogo = new System.Windows.Forms.PictureBox();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.pbZoek = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).BeginInit();
+
+            this.pLoadPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVoorbeeld)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbZoek)).BeginInit();
@@ -44,6 +48,7 @@
             // pbBarBG
             // 
             this.pbBarBG.Location = new System.Drawing.Point(0, 0);
+            this.pbBarBG.Margin = new System.Windows.Forms.Padding(4);
             this.pbBarBG.Name = "pbBarBG";
             this.pbBarBG.Size = new System.Drawing.Size(1260, 50);
             this.pbBarBG.TabIndex = 0;
@@ -52,14 +57,28 @@
             // pLoadPanel
             // 
             this.pLoadPanel.Location = new System.Drawing.Point(0, 49);
+            this.pLoadPanel.Controls.Add(this.dgvVoorbeeld);
+            this.pLoadPanel.Location = new System.Drawing.Point(0, 60);
+            this.pLoadPanel.Margin = new System.Windows.Forms.Padding(4);
             this.pLoadPanel.Name = "pLoadPanel";
             this.pLoadPanel.Size = new System.Drawing.Size(1260, 630);
             this.pLoadPanel.TabIndex = 1;
+            // 
+            // dgvVoorbeeld
+            // 
+            this.dgvVoorbeeld.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVoorbeeld.Location = new System.Drawing.Point(94, 66);
+            this.dgvVoorbeeld.Name = "dgvVoorbeeld";
+            this.dgvVoorbeeld.RowTemplate.Height = 24;
+            this.dgvVoorbeeld.Size = new System.Drawing.Size(97, 51);
+            this.dgvVoorbeeld.TabIndex = 0;
             // 
             // pbTray
             // 
             this.pbTray.Image = ((System.Drawing.Image)(resources.GetObject("pbTray.Image")));
             this.pbTray.Location = new System.Drawing.Point(1217, 12);
+            this.pbTray.Location = new System.Drawing.Point(1623, 15);
+            this.pbTray.Margin = new System.Windows.Forms.Padding(4);
             this.pbTray.Name = "pbTray";
             this.pbTray.Size = new System.Drawing.Size(35, 22);
             this.pbTray.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -107,9 +126,14 @@
             this.Controls.Add(this.pbTray);
             this.Controls.Add(this.pLoadPanel);
             this.Controls.Add(this.pbBarBG);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "CookIT";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbBarBG)).EndInit();
+
+            this.pLoadPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVoorbeeld)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTray)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbZoek)).EndInit();
@@ -128,4 +152,3 @@
         private System.Windows.Forms.PictureBox pbZoek;
     }
 }
-
