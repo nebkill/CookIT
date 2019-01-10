@@ -72,6 +72,7 @@ namespace CookIT
                     writer.WriteLine("[" + DateTime.Now.ToShortDateString() + " | " + DateTime.Now.ToLongTimeString() + "] " + st);
 
                     writer.Flush();
+                    writer.Close();
                 }
             }
             else if (!File.Exists(path))
