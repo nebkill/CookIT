@@ -98,10 +98,7 @@ namespace CookIT
         {
             Label clickedLabel = sender as Label;
             //Module_ReceptView mrv = new Module_ReceptView();
-            MessageBox.Show(clickedLabel.Tag.ToString());
-            
 
-            MessageBox.Show(clickedLabel.ToString());
             if (clickedLabel != null && (string)clickedLabel.Tag == "Recept")
             {
                 //DataTable recepten = mgr.getRecepten();

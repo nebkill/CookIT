@@ -86,5 +86,11 @@ namespace CookIT
             //var myControl = new Module_Home(this.pLoadPanel);
             pLoadPanel.Controls.Add(home);
         }
+
+        private void pbLogo_Click(object sender, EventArgs e)
+        {
+            pLoadPanel.Controls.Clear();
+            pLoadPanel.Controls.Add(home);
+        }
     }
 }
