@@ -256,7 +256,8 @@ namespace CookIT
                 NewLabel.Tag = "Recept";
                 NewLabel.Left = x;
                 NewLabel.Top = y;
-                NewLabel.Font =  new Font("Arial", 12, FontStyle.Bold);
+                NewLabel.Font =  new Font("Arial", 10, FontStyle.Bold);
+                NewLabel.Size = new System.Drawing.Size(1000, 20); ;
                 this.Controls.Add(NewLabel);
                 y += 20;
             }
