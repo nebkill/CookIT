@@ -58,7 +58,7 @@
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.17967F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.82033F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
-            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 247F));
+            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 248F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 328F));
             this.tlpCatRecepten.Controls.Add(this.pbRecept1, 0, 1);
@@ -100,13 +100,13 @@
             this.pbRecept2.Location = new System.Drawing.Point(283, 37);
             this.pbRecept2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbRecept2.Name = "pbRecept2";
-            this.pbRecept2.Size = new System.Drawing.Size(262, 188);
+            this.pbRecept2.Size = new System.Drawing.Size(261, 188);
             this.pbRecept2.TabIndex = 1;
             this.pbRecept2.TabStop = false;
             // 
             // pbRecept3
             // 
-            this.pbRecept3.Location = new System.Drawing.Point(551, 37);
+            this.pbRecept3.Location = new System.Drawing.Point(550, 37);
             this.pbRecept3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbRecept3.Name = "pbRecept3";
             this.pbRecept3.Size = new System.Drawing.Size(257, 187);
@@ -115,7 +115,7 @@
             // 
             // pbRecept4
             // 
-            this.pbRecept4.Location = new System.Drawing.Point(814, 37);
+            this.pbRecept4.Location = new System.Drawing.Point(813, 37);
             this.pbRecept4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbRecept4.Name = "pbRecept4";
             this.pbRecept4.Size = new System.Drawing.Size(239, 187);
@@ -125,9 +125,11 @@
             // lbTitle1
             // 
             this.lbTitle1.AutoSize = true;
+            this.lbTitle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lbTitle1.Location = new System.Drawing.Point(3, 228);
             this.lbTitle1.Name = "lbTitle1";
-            this.lbTitle1.Size = new System.Drawing.Size(91, 17);
+            this.lbTitle1.Size = new System.Drawing.Size(99, 16);
             this.lbTitle1.TabIndex = 4;
             this.lbTitle1.Tag = "Recept";
             this.lbTitle1.Text = "Titel recept 1";
@@ -135,9 +137,11 @@
             // lbTitle2
             // 
             this.lbTitle2.AutoSize = true;
+            this.lbTitle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lbTitle2.Location = new System.Drawing.Point(283, 228);
             this.lbTitle2.Name = "lbTitle2";
-            this.lbTitle2.Size = new System.Drawing.Size(91, 17);
+            this.lbTitle2.Size = new System.Drawing.Size(105, 17);
             this.lbTitle2.TabIndex = 5;
             this.lbTitle2.Tag = "Recept";
             this.lbTitle2.Text = "Titel recept 2";
@@ -145,9 +149,11 @@
             // lbTitle3
             // 
             this.lbTitle3.AutoSize = true;
-            this.lbTitle3.Location = new System.Drawing.Point(551, 228);
+            this.lbTitle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbTitle3.Location = new System.Drawing.Point(550, 228);
             this.lbTitle3.Name = "lbTitle3";
-            this.lbTitle3.Size = new System.Drawing.Size(91, 17);
+            this.lbTitle3.Size = new System.Drawing.Size(105, 17);
             this.lbTitle3.TabIndex = 6;
             this.lbTitle3.Tag = "Recept";
             this.lbTitle3.Text = "Titel recept 3";
@@ -155,9 +161,11 @@
             // lbTitle4
             // 
             this.lbTitle4.AutoSize = true;
-            this.lbTitle4.Location = new System.Drawing.Point(814, 228);
+            this.lbTitle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTitle4.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbTitle4.Location = new System.Drawing.Point(813, 228);
             this.lbTitle4.Name = "lbTitle4";
-            this.lbTitle4.Size = new System.Drawing.Size(91, 17);
+            this.lbTitle4.Size = new System.Drawing.Size(105, 17);
             this.lbTitle4.TabIndex = 7;
             this.lbTitle4.Tag = "Recept";
             this.lbTitle4.Text = "Titel recept 4";
@@ -189,7 +197,7 @@
             // 
             // lvRating3
             // 
-            this.lvRating3.Location = new System.Drawing.Point(551, 290);
+            this.lvRating3.Location = new System.Drawing.Point(550, 290);
             this.lvRating3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvRating3.Name = "lvRating3";
             this.lvRating3.Size = new System.Drawing.Size(256, 53);
@@ -198,7 +206,7 @@
             // 
             // lvRating4
             // 
-            this.lvRating4.Location = new System.Drawing.Point(814, 290);
+            this.lvRating4.Location = new System.Drawing.Point(813, 290);
             this.lvRating4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvRating4.Name = "lvRating4";
             this.lvRating4.Size = new System.Drawing.Size(239, 53);
@@ -220,7 +228,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tlpCatRecepten);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Module_Home";
             this.Size = new System.Drawing.Size(1680, 775);
             this.Load += new System.EventHandler(this.Module_Home_Load);
