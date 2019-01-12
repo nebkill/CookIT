@@ -164,7 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Love_Heart_symbol_square.png" />
-    <Content Include="Images\Love_Heart_symbol_square.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

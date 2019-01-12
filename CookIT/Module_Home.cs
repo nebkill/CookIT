@@ -34,26 +34,52 @@ namespace CookIT
 
         public void DataFill()
         {
-            
-            DataTable receptGet = mgr.getTopTen();
+
+            DataTable receptGet = mgr.dtTopFour();
 
             lbCategoryTitle.Text = "Top 5 Recepten";
             try
             {
                 if (receptGet != null)
                 {
-                    
-                        lbTitle1.Text = receptGet.Rows[0][2].ToString();
-                        lbTitle2.Text = receptGet.Rows[1][2].ToString();
-                        lbTitle3.Text = receptGet.Rows[2][2].ToString();
-                        lbTitle4.Text = receptGet.Rows[3][2].ToString();
+                    if (receptGet.Rows.Count < 0)
+                    {
+                        MessageBox.Show("Er zijn minder dan 4 recepten");
+                    }
+                    else
+                    {
+                        int count = 0;
+                        int count2 = 0;
+                        foreach (Label l in this.tlpCatRecepten.Controls.OfType<Label>())
+                        {
+                            l.Text = receptGet.Rows[count][1].ToString();
+                            count++;
 
-                        string file = "Love_Heart_symbol_square.png";
-                        string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
-                        
-                        pbRecept1.Image = Image.FromFile(filepath);
+                        }
+                        foreach(PictureBox p in this.tlpCatRecepten.Controls.OfType<PictureBox>())
+                        {
+                            string file = receptGet.Rows[count2][10].ToString();
 
-                    
+                            string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+
+                            p.Image = Image.FromFile(filepath);
+                            count2++;
+                        }
+
+                        //for (int i = 0; i < 3; i++)
+                        //{
+                        //    string label = "lbTitle" + i;
+                        //    lbTitle1.Text = receptGet.Rows[i][1].ToString();
+                        //    lbTitle2.Text = receptGet.Rows[i][1].ToString();
+                        //    lbTitle3.Text = receptGet.Rows[i][1].ToString();
+                        //    lbTitle4.Text = receptGet.Rows[i][1].ToString();
+
+                        //    string file = "Love_Heart_symbol_square.png";
+                        //    string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+
+                        //    pbRecept1.Image = Image.FromFile(filepath);
+                        //}
+                    }
                 }
                 else
                 {
@@ -76,8 +102,6 @@ namespace CookIT
             foreach (Label l in this.tlpCatRecepten.Controls.OfType<Label>())
             {
                 l.Click += new EventHandler(label_Click);
-
-
             }
             //lbTitle1.Click += new EventHandler(label_Click);
             //lbTitle2.Click += new EventHandler(label_Click);
@@ -93,7 +117,7 @@ namespace CookIT
             //}
 
         }
-        
+
         public void label_Click(object sender, EventArgs e)
         {
             Label clickedLabel = sender as Label;
@@ -104,7 +128,8 @@ namespace CookIT
                 //DataTable recepten = mgr.getRecepten();
                 //Recept item = new Recept();
                 string var = clickedLabel.Name;
-                int choosenLabel = 0;
+                int choosenLabel = -1;
+
                 switch (var)
                 {
                     case "lbTitle1":
@@ -124,8 +149,10 @@ namespace CookIT
                         break;
 
                 }
-                DataTable recepten = mgr.getTopTen();
+
+                DataTable recepten = mgr.dtTopFour();
                 Recept item = new Recept();
+
                 if (choosenLabel < recepten.Rows.Count)
                 {
                     List<string> ingr = recepten.Rows[choosenLabel][11].ToString().Split('*').ToList<string>();
@@ -162,7 +189,7 @@ namespace CookIT
                     //        item.rating = (int)recepten.Rows[i][5];
                     //        item.video = recepten.Rows[i][4].ToString();
                     //        item.image = recepten.Rows[i][10].ToString();
-                    //    }                    
+                    //    }
                     //}
                     receptView.setRecept(item);
 
@@ -186,7 +213,7 @@ namespace CookIT
             int count = mgr.getRecepten().Rows.Count;
             //for(int i = 0; i < count; i++)
             //{
-                
+
             //}
             TextBox[] textBox = new TextBox[count];
             Label[] label = new Label[count];

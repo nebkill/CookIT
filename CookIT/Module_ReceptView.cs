@@ -13,7 +13,7 @@ namespace CookIT
     public partial class Module_ReceptView : UserControl
     {
         Manager mg = new Manager();
-        Recept rcpt;
+        Recept rcpt = new Recept();
         public Module_ReceptView()
         {
             InitializeComponent();

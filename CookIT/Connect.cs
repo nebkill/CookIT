@@ -153,10 +153,10 @@ namespace CookIT
          * Aanvragen van top 10 recepten gebaseerd op de Average van alle recepten | TotalVoteScore / PeopleWhoVoted
          * Returned : DataTable;
         */
-        public DataTable getTopTen()
+        public DataTable dtTopFour()
         {
             DataTable dtTopTen = new DataTable();
-            string query = "SELECT * FROM Recept ORDER BY recept_average DESC LIMIT 10";
+            string query = "SELECT * FROM Recept ORDER BY recept_average DESC LIMIT 4";
                 //"SELECT * FROM recept WHERE recept.recept_ratingaverage LIMIT 10;";
                 //"SELECT FROm recepten WHERE ID NOT IN(SELECT TOP 10 ID FROM recepten ORDER BY recept_ratingaverage)";
             if (OpenConnection())

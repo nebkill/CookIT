@@ -30,9 +30,9 @@ namespace CookIT
          * Verkrijg een datatable met de top tien gebasseerd op de rating van: TotalRating/People = AverageRating;
          * Returns: DataTable
          */
-        public DataTable getTopTen()
+        public DataTable dtTopFour()
         {
-            return con.getTopTen();
+            return con.dtTopFour();
         }
         /*
          * Verkrijg alle recepten van de database
