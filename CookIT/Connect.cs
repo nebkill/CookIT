@@ -19,7 +19,7 @@ namespace CookIT
             server = "cookitapp.eu";
             database = "CookItApp";
             uid = "CookITAdmin";
-            password = "!";
+            password = "DikkeLul123!";
             string connectionString;
             connectionString = "SERVER=" + server + ";" + "DATABASE=" +
                 database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
@@ -59,7 +59,7 @@ namespace CookIT
         //Insert een recept naar de table Recepten
         public void insertRecept(Recept recept)
         {
-            string readCommand = "INSERT INTO recepten (recept_naam,recept_desc,recept_auteur,recept_video,recept_rating,recept_people,recept_average,recept_dieet,recept_benodigdheden,recept_image,recept_ingredienten,recept_stappen) VALUES (?naam,?desc,?auteur,?video,?rating,?people,?average,?dieet,?benodigdheden,?image,?ingredienten,?stappen);";
+            string readCommand = "INSERT INTO Recept (recept_naam,recept_desc,recept_auteur,recept_video,recept_rating,recept_people,recept_average,recept_dieet,recept_benodigdheden,recept_image,recept_ingredienten,recept_stappen) VALUES (?naam,?desc,?auteur,?video,?rating,?people,?average,?dieet,?benodigdheden,?image,?ingredienten,?stappen);";
             if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -108,7 +108,7 @@ namespace CookIT
         public DataTable getRecepten()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM recepten";
+            string query = "SELECT * FROM Recept";
             if (OpenConnection())
             {
                 MySqlDataAdapter mda = new MySqlDataAdapter();
@@ -138,7 +138,7 @@ namespace CookIT
          */
         public void updateRating(int ID, int amount)
         {
-            string query = "UPDATE TABLE recepten SET recept_rating= recept_rating + " + amount + ",recept_peoplerated = recept_peoplerated + 1, recept_ratingaverage = recept_rating/recept_peoplerated WHERE recept_ID=" + ID;
+            string query = "UPDATE TABLE Recept SET recept_rating= recept_rating + " + amount + ",recept_peoplerated = recept_peoplerated + 1, recept_ratingaverage = recept_rating/recept_peoplerated WHERE recept_ID=" + ID;
             if (OpenConnection())
             {
                 MySqlCommand cmd = new MySqlCommand(query, connection);
@@ -174,7 +174,7 @@ namespace CookIT
         public Recept getRecept(int id)
         {
             Recept receptByID = new Recept();
-            string query = "SELECT row FROM recepten WHERE ID=?ID";
+            string query = "SELECT row FROM Recept WHERE ID=?ID";
             MySqlCommand cmd = new MySqlCommand(query, connection);
             cmd.Parameters.Add("?ID", MySqlDbType.Int32).Value = id;
             MySqlDataReader reader = cmd.ExecuteReader();

@@ -65,10 +65,14 @@ namespace CookIT
         }
         public void setLabelEvent()
         {
-            foreach(Label l in this.Controls.OfType<Label>())
-            {
-                l.Click += new EventHandler(label_Click);
-            }
+            //foreach(Label l in this.Controls.OfType<Label>())
+            //{
+            //l.Click += new EventHandler(label_Click);
+
+
+
+            lbTitle1.Click += new EventHandler(label_Click);
+            //}
 
         }
         
@@ -76,7 +80,11 @@ namespace CookIT
         {
             Label clickedLabel = sender as Label;
             Module_ReceptView mrv = new Module_ReceptView();
-            if(clickedLabel != null && (string)clickedLabel.Tag == "Recept")
+            MessageBox.Show(clickedLabel.Tag.ToString());
+            
+
+            MessageBox.Show(clickedLabel.ToString());
+            if (clickedLabel != null && (string)clickedLabel.Tag == "Recept")
             {
                 DataTable recepten = mgr.getRecepten();
                 Recept item = new Recept();
