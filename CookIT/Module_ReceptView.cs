@@ -51,5 +51,10 @@ namespace CookIT
         {
             this.rcpt = rpt;
         }
+
+        private void btnPdf_Click(object sender, EventArgs e)
+        {
+            mg.createPDF(rcpt);
+        }
     }
 }

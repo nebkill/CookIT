@@ -59,11 +59,11 @@ namespace CookIT
             {
                 Directory.CreateDirectory(root);
             }
-            string filename = @"C:\CookIT\Recepten\" + recept.naam + " Recept.pdf";
+            string filename = @"C:\CookIT\Recepten\" + recept.naam + "_Recept.pdf";
             try
             {
                 doc.Save(filename);
-                MessageBox.Show("Succesfully Created "+  recept.naam +" Recept.pdf \n" +
+                MessageBox.Show("Succesfully Created "+  recept.naam +"_Recept.pdf \n" +
                     "Location:  " + filename + "" );
             }
             catch (IOException io)
