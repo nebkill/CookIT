@@ -39,54 +39,60 @@
             // lblTitel
             // 
             this.lblTitel.AutoSize = true;
+            this.lblTitel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitel.Location = new System.Drawing.Point(39, 35);
             this.lblTitel.Name = "lblTitel";
-            this.lblTitel.Size = new System.Drawing.Size(39, 13);
+            this.lblTitel.Size = new System.Drawing.Size(66, 24);
             this.lblTitel.TabIndex = 0;
             this.lblTitel.Text = "Label1";
             // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
+            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDesc.Location = new System.Drawing.Point(39, 63);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(39, 13);
+            this.lblDesc.Size = new System.Drawing.Size(51, 17);
             this.lblDesc.TabIndex = 1;
             this.lblDesc.Text = "Label1";
             // 
             // lblIngr
             // 
             this.lblIngr.AutoSize = true;
+            this.lblIngr.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIngr.Location = new System.Drawing.Point(39, 138);
             this.lblIngr.Name = "lblIngr";
-            this.lblIngr.Size = new System.Drawing.Size(39, 13);
+            this.lblIngr.Size = new System.Drawing.Size(51, 17);
             this.lblIngr.TabIndex = 2;
             this.lblIngr.Text = "Label1";
             // 
             // lblBenod
             // 
             this.lblBenod.AutoSize = true;
+            this.lblBenod.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBenod.Location = new System.Drawing.Point(396, 138);
             this.lblBenod.Name = "lblBenod";
-            this.lblBenod.Size = new System.Drawing.Size(39, 13);
+            this.lblBenod.Size = new System.Drawing.Size(51, 17);
             this.lblBenod.TabIndex = 3;
             this.lblBenod.Text = "Label1";
             // 
             // lblStap
             // 
             this.lblStap.AutoSize = true;
+            this.lblStap.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStap.Location = new System.Drawing.Point(39, 281);
             this.lblStap.Name = "lblStap";
-            this.lblStap.Size = new System.Drawing.Size(39, 13);
+            this.lblStap.Size = new System.Drawing.Size(51, 17);
             this.lblStap.TabIndex = 4;
             this.lblStap.Text = "Label1";
             // 
             // lblAuteur
             // 
             this.lblAuteur.AutoSize = true;
-            this.lblAuteur.Location = new System.Drawing.Point(396, 35);
+            this.lblAuteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAuteur.Location = new System.Drawing.Point(650, 35);
             this.lblAuteur.Name = "lblAuteur";
-            this.lblAuteur.Size = new System.Drawing.Size(41, 13);
+            this.lblAuteur.Size = new System.Drawing.Size(54, 17);
             this.lblAuteur.TabIndex = 5;
             this.lblAuteur.Text = "Auteur:";
             // 

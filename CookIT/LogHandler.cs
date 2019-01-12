@@ -66,7 +66,8 @@ namespace CookIT
         {
             if (File.Exists(path))
             {
-                using (StreamWriter writer = new StreamWriter(path, true))
+                using (
+                    StreamWriter writer = new StreamWriter(path, true))
                 {
 
                     writer.WriteLine("[" + DateTime.Now.ToShortDateString() + " | " + DateTime.Now.ToLongTimeString() + "] " + st);

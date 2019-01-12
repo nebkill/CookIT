@@ -16,6 +16,7 @@ namespace CookIT
         Manager mgr = new Manager();
         Panel panel = new Panel();
         Module_ReceptView receptView = new Module_ReceptView();
+        Module_ReceptAdd receptAdd = new Module_ReceptAdd();
         public Module_Home(Panel mainFormPanel)
         {
             InitializeComponent();
@@ -201,6 +202,12 @@ namespace CookIT
                 this.Controls.Add(textBox[i]);
                 this.Controls.Add(label[i]);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            panel.Controls.Clear();
+            panel.Controls.Add(receptAdd);
         }
     }
 }

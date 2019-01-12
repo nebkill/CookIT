@@ -17,7 +17,7 @@ namespace CookIT
         public Module_ReceptView()
         {
             InitializeComponent();
-            
+
         }
 
         private void Module_ReceptView_Load(object sender, EventArgs e)
@@ -25,7 +25,10 @@ namespace CookIT
             StringBuilder sbStappen = new StringBuilder();
             foreach (string item in rcpt.stappen)
             {
-                sbStappen.Append("*").Append(item).Append("\n");
+                if (item != "")
+                {
+                    sbStappen.Append("*").Append(item).Append("\n");
+                }
             }
             lblStap.Text = sbStappen.ToString();
             StringBuilder sbBenodigdheden = new StringBuilder();
@@ -42,7 +45,7 @@ namespace CookIT
             lblIngr.Text = sbBenodigdheden.ToString();
             lblTitel.Text = rcpt.naam;
             lblDesc.Text = rcpt.desc;
-            lblAuteur.Text += " "+ rcpt.auteur;
+            lblAuteur.Text += " " + rcpt.auteur;
         }
         public void setRecept(Recept rpt)
         {

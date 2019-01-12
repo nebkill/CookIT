@@ -223,7 +223,8 @@
             "HighCarb",
             "ADHD",
             "Lactose",
-            "Gluten"});
+            "Gluten",
+            "Geen"});
             this.comboBox1.Location = new System.Drawing.Point(947, 66);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(177, 21);
