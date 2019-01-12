@@ -16,6 +16,7 @@ namespace CookIT
         Recept rcpt = new Recept();
         public Module_ReceptView()
         {
+            rcpt = null;
             InitializeComponent();
 
         }

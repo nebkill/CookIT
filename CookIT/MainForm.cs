@@ -89,6 +89,7 @@ namespace CookIT
 
         private void pbLogo_Click(object sender, EventArgs e)
         {
+            
             pLoadPanel.Controls.Clear();
             pLoadPanel.Controls.Add(home);
         }
