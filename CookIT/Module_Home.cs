@@ -15,6 +15,15 @@ namespace CookIT
     {
         Manager mgr = new Manager();
         Panel panel = new Panel();
+        Module_ReceptView receptView = new Module_ReceptView();
+        public Module_Home(Panel mainFormPanel)
+        {
+            InitializeComponent();
+            this.panel = mainFormPanel;
+            DataFill();
+            setLabelEvent();
+        }
+
         public Module_Home()
         {
             InitializeComponent();
@@ -65,52 +74,104 @@ namespace CookIT
         }
         public void setLabelEvent()
         {
-            //foreach(Label l in this.Controls.OfType<Label>())
+            //foreach (Label l in this.Controls.OfType<Label>())
             //{
-            //l.Click += new EventHandler(label_Click);
+            //    l.Click += new EventHandler(label_Click);
 
-
-
-            lbTitle1.Click += new EventHandler(label_Click);
+            //    
             //}
+            lbTitle1.Click += new EventHandler(label_Click);
+            lbTitle2.Click += new EventHandler(label_Click);
+            lbTitle3.Click += new EventHandler(label_Click);
+            lbTitle4.Click += new EventHandler(label_Click);
+            foreach (Control ct in this.Controls)
+            {
+                if (ct is Label)
+                {
+                    ((Label)ct).Click += new EventHandler(label_Click);
+                }
+            }
 
         }
         
         public void label_Click(object sender, EventArgs e)
         {
             Label clickedLabel = sender as Label;
-            Module_ReceptView mrv = new Module_ReceptView();
+            //Module_ReceptView mrv = new Module_ReceptView();
             MessageBox.Show(clickedLabel.Tag.ToString());
             
 
             MessageBox.Show(clickedLabel.ToString());
             if (clickedLabel != null && (string)clickedLabel.Tag == "Recept")
             {
-                DataTable recepten = mgr.getRecepten();
-                Recept item = new Recept();
-                for (int i = 0; i < recepten.Rows.Count; i++)
+                //DataTable recepten = mgr.getRecepten();
+                //Recept item = new Recept();
+                string var = clickedLabel.Name;
+                int choosenLabel = 0;
+                switch (var)
                 {
-                    if(recepten.Rows[i][1].ToString() == clickedLabel.Text)
-                    {
-                        List<string> ingr = recepten.Rows[i][11].ToString().Split('-').ToList<string>();
-                        List<string> stap = recepten.Rows[i][12].ToString().Split('-').ToList<string>();
-                        List<string> benod = recepten.Rows[i][9].ToString().Split(',').ToList<string>();
-                        item.id = (int)recepten.Rows[i][0];
-                        item.naam = recepten.Rows[i][1].ToString();
-                        item.desc = recepten.Rows[i][2].ToString();
-                        item.auteur = recepten.Rows[i][3].ToString();
-                        item.ingredienten = ingr;
-                        item.stappen = stap;
-                        item.benodigdheden = benod;
-                        item.dieet = recepten.Rows[i][8].ToString();
-                        item.rating = (int)recepten.Rows[i][5];
-                        item.video = recepten.Rows[i][4].ToString();
-                        item.image = recepten.Rows[i][10].ToString();
-                    }                    
+                    case "lbTitle1":
+                        choosenLabel = 0;
+                        break;
+
+                    case "lbTitle2":
+                        choosenLabel = 1;
+                        break;
+
+                    case "lbTitle3":
+                        choosenLabel = 2;
+                        break;
+
+                    case "lbTitle4":
+                        choosenLabel = 3;
+                        break;
+
                 }
-                mrv.setRecept(item);
-                var ViewPanel = new Module_ReceptView();
-                panel.Controls.Add(ViewPanel);
+                DataTable recepten = mgr.getTopTen();
+                Recept item = new Recept();
+
+                List<string> ingr = recepten.Rows[choosenLabel][11].ToString().Split('-').ToList<string>();
+                List<string> stap = recepten.Rows[choosenLabel][12].ToString().Split('-').ToList<string>();
+                List<string> benod = recepten.Rows[choosenLabel][9].ToString().Split(',').ToList<string>();
+                item.id = (int)recepten.Rows[choosenLabel][0];
+                item.naam = recepten.Rows[choosenLabel][1].ToString();
+                item.desc = recepten.Rows[choosenLabel][2].ToString();
+                item.auteur = recepten.Rows[choosenLabel][3].ToString();
+                item.ingredienten = ingr;
+                item.stappen = stap;
+                item.benodigdheden = benod;
+                item.dieet = recepten.Rows[choosenLabel][8].ToString();
+                item.rating = (int)recepten.Rows[choosenLabel][5];
+                item.video = recepten.Rows[choosenLabel][4].ToString();
+                item.image = recepten.Rows[choosenLabel][10].ToString();
+               
+                
+                //for (int i = 0; i < recepten.Rows.Count; i++)
+                //{
+                //    if(recepten.Rows[i][1].ToString() == clickedLabel.Text)
+                //    {
+                //        List<string> ingr = recepten.Rows[i][11].ToString().Split('-').ToList<string>();
+                //        List<string> stap = recepten.Rows[i][12].ToString().Split('-').ToList<string>();
+                //        List<string> benod = recepten.Rows[i][9].ToString().Split(',').ToList<string>();
+                //        item.id = (int)recepten.Rows[i][0];
+                //        item.naam = recepten.Rows[i][1].ToString();
+                //        item.desc = recepten.Rows[i][2].ToString();
+                //        item.auteur = recepten.Rows[i][3].ToString();
+                //        item.ingredienten = ingr;
+                //        item.stappen = stap;
+                //        item.benodigdheden = benod;
+                //        item.dieet = recepten.Rows[i][8].ToString();
+                //        item.rating = (int)recepten.Rows[i][5];
+                //        item.video = recepten.Rows[i][4].ToString();
+                //        item.image = recepten.Rows[i][10].ToString();
+                //    }                    
+                //}
+                receptView.setRecept(item);
+
+                //var ViewPanel = new Module_ReceptView();
+                panel.Controls.Clear();
+                panel.Controls.Add(receptView);
+                receptView.BringToFront();
             }
         }
         public void setPanel(Panel panel)

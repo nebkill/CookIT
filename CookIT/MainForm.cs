@@ -82,8 +82,9 @@ namespace CookIT
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            var myControl = new Module_Home();
-            pLoadPanel.Controls.Add(myControl);
+            home.setPanel(this.pLoadPanel);
+            //var myControl = new Module_Home(this.pLoadPanel);
+            pLoadPanel.Controls.Add(home);
         }
     }
 }
