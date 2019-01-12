@@ -27,6 +27,7 @@ namespace CookIT
 
         public Module_Home()
         {
+            genReceptList();
             InitializeComponent();
             DataFill();
             setLabelEvent();
@@ -95,13 +96,18 @@ namespace CookIT
 
         private void Module_Home_Load(object sender, EventArgs e)
         {
-            genReceptList();
+            //genReceptList();
         }
         public void setLabelEvent()
         {
             foreach (Label l in this.tlpCatRecepten.Controls.OfType<Label>())
             {
                 l.Click += new EventHandler(label_Click);
+            }
+            
+            foreach (Label lb in this.Controls.OfType<Label>())
+            {
+                lb.Click += new EventHandler(label_Click);
             }
             //lbTitle1.Click += new EventHandler(label_Click);
             //lbTitle2.Click += new EventHandler(label_Click);
@@ -127,28 +133,41 @@ namespace CookIT
             {
                 //DataTable recepten = mgr.getRecepten();
                 //Recept item = new Recept();
-                string var = clickedLabel.Name;
-                int choosenLabel = -1;
-
-                switch (var)
+                string source = clickedLabel.Name;
+                string lbName = "";
+                if (source.Length == 12)
                 {
-                    case "lbTitle1":
-                        choosenLabel = 0;
-                        break;
-
-                    case "lbTitle2":
-                        choosenLabel = 1;
-                        break;
-
-                    case "lbTitle3":
-                        choosenLabel = 2;
-                        break;
-
-                    case "lbTitle4":
-                        choosenLabel = 3;
-                        break;
-
+                    lbName = source.Remove(0, 11);
                 }
+                else
+                {
+                    lbName = source.Remove(0, 7);
+                }
+                
+                int choosenLabel = Convert.ToInt32(lbName);
+                //string var = clickedLabel.Name;
+                //int choosenLabel = -1;
+
+
+                //switch (var)
+                //{
+                //    case "lbTitle1":
+                //        choosenLabel = 0;
+                //        break;
+
+                //    case "lbTitle2":
+                //        choosenLabel = 1;
+                //        break;
+
+                //    case "lbTitle3":
+                //        choosenLabel = 2;
+                //        break;
+
+                //    case "lbTitle4":
+                //        choosenLabel = 3;
+                //        break;
+
+                //}
 
                 DataTable recepten = mgr.dtTopFour();
                 Recept item = new Recept();
@@ -251,7 +270,7 @@ namespace CookIT
             for (int i = 0; i < count; i++)
             {
                 Label NewLabel = new Label();
-                NewLabel.Name = recepten.Rows[i]["recept_naam"].ToString();
+                NewLabel.Name = "lbTitleList" + i;
                 NewLabel.Text = recepten.Rows[i]["recept_naam"].ToString();
                 NewLabel.Tag = "Recept";
                 NewLabel.Left = x;
