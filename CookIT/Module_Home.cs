@@ -28,26 +28,34 @@ namespace CookIT
             DataTable receptGet = mgr.getTopTen();
 
             lbCategoryTitle.Text = "Top 5 Recepten";
-
-            if (receptGet != null) {
-                
-                lbTitle1.Text = receptGet.Rows[0][2].ToString();
-                lbTitle2.Text = receptGet.Rows[1][2].ToString();
-                lbTitle3.Text = receptGet.Rows[1][2].ToString();
-                lbTitle4.Text = receptGet.Rows[1][2].ToString();
-
-                string file = "Love_Heart_symbol_square.png";
-                string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
-
-                //pbRecept1.Show("C:\\Users\\mi_ke\\Source\\Repos\\CookIT\\CookIT\\Images\\Love_Heart_symbol_square.svg");
-                pbRecept1.Image = Image.FromFile(filepath);
-
-                //lvRating1.;
-                 
-            }
-            else
+            try
             {
-                MessageBox.Show("Er zijn niet genoeg recepten");
+                if (receptGet != null)
+                {
+
+                    lbTitle1.Text = receptGet.Rows[0][2].ToString();
+                    lbTitle2.Text = receptGet.Rows[1][2].ToString();
+                    lbTitle3.Text = receptGet.Rows[1][2].ToString();
+                    lbTitle4.Text = receptGet.Rows[1][2].ToString();
+
+                    string file = "Love_Heart_symbol_square.png";
+                    string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+
+                    //pbRecept1.Show("C:\\Users\\mi_ke\\Source\\Repos\\CookIT\\CookIT\\Images\\Love_Heart_symbol_square.svg");
+                    pbRecept1.Image = Image.FromFile(filepath);
+
+                    //lvRating1.;
+
+                }
+                else
+                {
+                    MessageBox.Show("Er zijn niet genoeg recepten");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("De rij kan niet in de database gevonden worden. Geen verbinding met de database. Voeg ip toe bij de domain eigenaar." +
+                    "Als u niet de eigenaar bent, neem dan contact op met de eigenaar.");
             }
         }
 
