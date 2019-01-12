@@ -75,7 +75,7 @@ namespace CookIT
 
         private void Module_Home_Load(object sender, EventArgs e)
         {
-            //nthing
+            //genReceptList();
         }
         public void setLabelEvent()
         {
@@ -134,9 +134,9 @@ namespace CookIT
                 Recept item = new Recept();
                 if (choosenLabel < recepten.Rows.Count)
                 {
-                    List<string> ingr = recepten.Rows[choosenLabel][11].ToString().Split('-').ToList<string>();
-                    List<string> stap = recepten.Rows[choosenLabel][12].ToString().Split('-').ToList<string>();
-                    List<string> benod = recepten.Rows[choosenLabel][9].ToString().Split(',').ToList<string>();
+                    List<string> ingr = recepten.Rows[choosenLabel][11].ToString().Split('*').ToList<string>();
+                    List<string> stap = recepten.Rows[choosenLabel][12].ToString().Split('*').ToList<string>();
+                    List<string> benod = recepten.Rows[choosenLabel][9].ToString().Split('*').ToList<string>();
                     item.id = (int)recepten.Rows[choosenLabel][0];
                     item.naam = recepten.Rows[choosenLabel][1].ToString();
                     item.desc = recepten.Rows[choosenLabel][2].ToString();
@@ -219,6 +219,24 @@ namespace CookIT
         {
             panel.Controls.Clear();
             panel.Controls.Add(receptAdd);
+        }
+        private void genReceptList()
+        {
+            //NEEDS TO BE FIXED!
+            int count = mgr.getRecepten().Rows.Count;
+            int x = 241;
+            int y = 394;
+            for (int i = 0; i < count; i++)
+            {
+                Label NewLabel = new Label();
+                NewLabel.Name = mgr.getRecept(count).naam;
+                NewLabel.Text = mgr.getRecept(count).naam;
+                NewLabel.Tag = "Recept";
+                NewLabel.Left = x;
+                NewLabel.Top = y;
+                this.Controls.Add(NewLabel);
+                y += 20;
+            }
         }
     }
 }

@@ -69,17 +69,20 @@ namespace CookIT
                 StringBuilder sbStappen = new StringBuilder();
                 foreach(string item in recept.stappen)
                 {
-                    sbStappen.Append("*").Append(item);
+                    sbStappen.Append(item).Append('*');
+                    sbStappen.Remove(sbStappen.Length - 1, 1);
                 }
                 StringBuilder sbBenodigdheden = new StringBuilder();
                 foreach (string item in recept.benodigdheden)
                 {
-                    sbBenodigdheden.Append("*").Append(item);
+                    sbBenodigdheden.Append(item).Append('*');
+                    sbBenodigdheden.Remove(sbBenodigdheden.Length - 1, 1);
                 }
                 StringBuilder sbIngredienten = new StringBuilder();
                 foreach (string item in recept.ingredienten)
                 {
-                    sbIngredienten.Append("*").Append(item);
+                    sbIngredienten.Append(item).Append('*');
+                    sbIngredienten.Remove(sbIngredienten.Length - 1, 1);
                 }
                 //stappen.Join("-", recept.stappen.ToArray());
                 cmd.Parameters.Add("?naam", MySqlDbType.VarChar).Value = recept.naam;
