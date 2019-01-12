@@ -41,7 +41,7 @@ namespace CookIT
             {
                 if (receptGet != null)
                 {
-                    if (receptGet.Rows.Count < 0 && receptGet.Rows.Count > 3)
+                    if (receptGet.Rows.Count < 0 || receptGet.Rows.Count > 3)
                     {
                         MessageBox.Show("Er zijn minder dan 4 recepten");
                     }
