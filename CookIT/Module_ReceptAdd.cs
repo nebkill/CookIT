@@ -25,6 +25,7 @@ namespace CookIT
             List<string> benodList = lbBenod.Items.Cast<String>().ToList(); 
             Recept recept = new Recept(0, tbTitle.Text,tbDesc.Text,"CookItAdmin","//",0,comboBox1.Text,benodList,"//",ingrList,stapList);
             mg.insertRecept(recept);
+            ClearAll();
         }
 
         private void Module_ReceptAdd_Load(object sender, EventArgs e)
@@ -42,14 +43,23 @@ namespace CookIT
 
         private void btnAddBenod_Click(object sender, EventArgs e)
         {
-            lbBenod.Items.Add(tbBenod);
+            lbBenod.Items.Add(tbBenod.Text);
             tbBenod.Clear();
         }
 
         private void btnAddStap_Click(object sender, EventArgs e)
         {
-            lbStap.Items.Add(tbStap);
+            lbStap.Items.Add(tbStap.Text);
             tbStap.Clear();
+        }
+        private void ClearAll()
+        {
+            lbBenod.Items.Clear();
+            lbIng.Items.Clear();
+            lbStap.Items.Clear();
+            tbDesc.Clear();
+            tbTitle.Clear();
+            comboBox1.SelectedIndex = 0;
         }
     }
 }
