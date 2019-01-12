@@ -34,6 +34,7 @@
             this.lblBenod = new System.Windows.Forms.Label();
             this.lblStap = new System.Windows.Forms.Label();
             this.lblAuteur = new System.Windows.Forms.Label();
+            this.btnPdf = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitel
@@ -96,10 +97,21 @@
             this.lblAuteur.TabIndex = 5;
             this.lblAuteur.Text = "Auteur:";
             // 
+            // btnPdf
+            // 
+            this.btnPdf.Location = new System.Drawing.Point(914, 32);
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.Size = new System.Drawing.Size(134, 48);
+            this.btnPdf.TabIndex = 6;
+            this.btnPdf.Text = "Maak Recept PDF";
+            this.btnPdf.UseVisualStyleBackColor = true;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
+            // 
             // Module_ReceptView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.lblAuteur);
             this.Controls.Add(this.lblStap);
             this.Controls.Add(this.lblBenod);
@@ -122,5 +134,6 @@
         private System.Windows.Forms.Label lblBenod;
         private System.Windows.Forms.Label lblStap;
         private System.Windows.Forms.Label lblAuteur;
+        private System.Windows.Forms.Button btnPdf;
     }
 }
