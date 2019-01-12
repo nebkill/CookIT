@@ -41,20 +41,24 @@ namespace CookIT
             {
                 if (receptGet != null)
                 {
+                    if (receptGet.Rows.Count < 0 && receptGet.Rows.Count > 3)
+                    {
+                        MessageBox.Show("Er zijn minder dan 4 recepten");
+                    }
+                    else
+                    {
 
-                    lbTitle1.Text = receptGet.Rows[0][2].ToString();
-                    lbTitle2.Text = receptGet.Rows[1][2].ToString();
-                    lbTitle3.Text = receptGet.Rows[1][2].ToString();
-                    lbTitle4.Text = receptGet.Rows[1][2].ToString();
+                        lbTitle1.Text = receptGet.Rows[0][2].ToString();
+                        lbTitle2.Text = receptGet.Rows[1][2].ToString();
+                        lbTitle3.Text = receptGet.Rows[2][2].ToString();
+                        lbTitle4.Text = receptGet.Rows[3][2].ToString();
 
-                    string file = "Love_Heart_symbol_square.png";
-                    string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+                        string file = "Love_Heart_symbol_square.png";
+                        string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+                        
+                        pbRecept1.Image = Image.FromFile(filepath);
 
-                    //pbRecept1.Show("C:\\Users\\mi_ke\\Source\\Repos\\CookIT\\CookIT\\Images\\Love_Heart_symbol_square.svg");
-                    pbRecept1.Image = Image.FromFile(filepath);
-
-                    //lvRating1.;
-
+                    }
                 }
                 else
                 {
@@ -74,23 +78,24 @@ namespace CookIT
         }
         public void setLabelEvent()
         {
-            //foreach (Label l in this.Controls.OfType<Label>())
-            //{
-            //    l.Click += new EventHandler(label_Click);
-
-            //    
-            //}
-            lbTitle1.Click += new EventHandler(label_Click);
-            lbTitle2.Click += new EventHandler(label_Click);
-            lbTitle3.Click += new EventHandler(label_Click);
-            lbTitle4.Click += new EventHandler(label_Click);
-            foreach (Control ct in this.Controls)
+            foreach (Label l in this.tlpCatRecepten.Controls.OfType<Label>())
             {
-                if (ct is Label)
-                {
-                    ((Label)ct).Click += new EventHandler(label_Click);
-                }
+                l.Click += new EventHandler(label_Click);
+
+
             }
+            //lbTitle1.Click += new EventHandler(label_Click);
+            //lbTitle2.Click += new EventHandler(label_Click);
+            //lbTitle3.Click += new EventHandler(label_Click);
+            //lbTitle4.Click += new EventHandler(label_Click);
+
+            //foreach (Control ct in this.tlpCatRecepten.Controls)
+            //{
+            //    if (ct is Label)
+            //    {
+            //        ((Label)ct).Click += new EventHandler(label_Click);
+            //    }
+            //}
 
         }
         
@@ -126,49 +131,55 @@ namespace CookIT
                 }
                 DataTable recepten = mgr.getTopTen();
                 Recept item = new Recept();
+                if (choosenLabel < recepten.Rows.Count)
+                {
+                    List<string> ingr = recepten.Rows[choosenLabel][11].ToString().Split('-').ToList<string>();
+                    List<string> stap = recepten.Rows[choosenLabel][12].ToString().Split('-').ToList<string>();
+                    List<string> benod = recepten.Rows[choosenLabel][9].ToString().Split(',').ToList<string>();
+                    item.id = (int)recepten.Rows[choosenLabel][0];
+                    item.naam = recepten.Rows[choosenLabel][1].ToString();
+                    item.desc = recepten.Rows[choosenLabel][2].ToString();
+                    item.auteur = recepten.Rows[choosenLabel][3].ToString();
+                    item.ingredienten = ingr;
+                    item.stappen = stap;
+                    item.benodigdheden = benod;
+                    item.dieet = recepten.Rows[choosenLabel][8].ToString();
+                    item.rating = (int)recepten.Rows[choosenLabel][5];
+                    item.video = recepten.Rows[choosenLabel][4].ToString();
+                    item.image = recepten.Rows[choosenLabel][10].ToString();
 
-                List<string> ingr = recepten.Rows[choosenLabel][11].ToString().Split('-').ToList<string>();
-                List<string> stap = recepten.Rows[choosenLabel][12].ToString().Split('-').ToList<string>();
-                List<string> benod = recepten.Rows[choosenLabel][9].ToString().Split(',').ToList<string>();
-                item.id = (int)recepten.Rows[choosenLabel][0];
-                item.naam = recepten.Rows[choosenLabel][1].ToString();
-                item.desc = recepten.Rows[choosenLabel][2].ToString();
-                item.auteur = recepten.Rows[choosenLabel][3].ToString();
-                item.ingredienten = ingr;
-                item.stappen = stap;
-                item.benodigdheden = benod;
-                item.dieet = recepten.Rows[choosenLabel][8].ToString();
-                item.rating = (int)recepten.Rows[choosenLabel][5];
-                item.video = recepten.Rows[choosenLabel][4].ToString();
-                item.image = recepten.Rows[choosenLabel][10].ToString();
-               
-                
-                //for (int i = 0; i < recepten.Rows.Count; i++)
-                //{
-                //    if(recepten.Rows[i][1].ToString() == clickedLabel.Text)
-                //    {
-                //        List<string> ingr = recepten.Rows[i][11].ToString().Split('-').ToList<string>();
-                //        List<string> stap = recepten.Rows[i][12].ToString().Split('-').ToList<string>();
-                //        List<string> benod = recepten.Rows[i][9].ToString().Split(',').ToList<string>();
-                //        item.id = (int)recepten.Rows[i][0];
-                //        item.naam = recepten.Rows[i][1].ToString();
-                //        item.desc = recepten.Rows[i][2].ToString();
-                //        item.auteur = recepten.Rows[i][3].ToString();
-                //        item.ingredienten = ingr;
-                //        item.stappen = stap;
-                //        item.benodigdheden = benod;
-                //        item.dieet = recepten.Rows[i][8].ToString();
-                //        item.rating = (int)recepten.Rows[i][5];
-                //        item.video = recepten.Rows[i][4].ToString();
-                //        item.image = recepten.Rows[i][10].ToString();
-                //    }                    
-                //}
-                receptView.setRecept(item);
 
-                //var ViewPanel = new Module_ReceptView();
-                panel.Controls.Clear();
-                panel.Controls.Add(receptView);
-                receptView.BringToFront();
+                    //for (int i = 0; i < recepten.Rows.Count; i++)
+                    //{
+                    //    if(recepten.Rows[i][1].ToString() == clickedLabel.Text)
+                    //    {
+                    //        List<string> ingr = recepten.Rows[i][11].ToString().Split('-').ToList<string>();
+                    //        List<string> stap = recepten.Rows[i][12].ToString().Split('-').ToList<string>();
+                    //        List<string> benod = recepten.Rows[i][9].ToString().Split(',').ToList<string>();
+                    //        item.id = (int)recepten.Rows[i][0];
+                    //        item.naam = recepten.Rows[i][1].ToString();
+                    //        item.desc = recepten.Rows[i][2].ToString();
+                    //        item.auteur = recepten.Rows[i][3].ToString();
+                    //        item.ingredienten = ingr;
+                    //        item.stappen = stap;
+                    //        item.benodigdheden = benod;
+                    //        item.dieet = recepten.Rows[i][8].ToString();
+                    //        item.rating = (int)recepten.Rows[i][5];
+                    //        item.video = recepten.Rows[i][4].ToString();
+                    //        item.image = recepten.Rows[i][10].ToString();
+                    //    }                    
+                    //}
+                    receptView.setRecept(item);
+
+                    //var ViewPanel = new Module_ReceptView();
+                    panel.Controls.Clear();
+                    panel.Controls.Add(receptView);
+                    receptView.BringToFront();
+                }
+                else
+                {
+                    MessageBox.Show("Dit recept bestaat niet");
+                }
             }
         }
         public void setPanel(Panel panel)
