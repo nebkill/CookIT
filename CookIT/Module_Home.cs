@@ -42,13 +42,7 @@ namespace CookIT
             {
                 if (receptGet != null)
                 {
-                    if (receptGet.Rows.Count < 0 || receptGet.Rows.Count > 3)
-                    {
-                        MessageBox.Show("Er zijn minder dan 4 recepten");
-                    }
-                    else
-                    {
-
+                    
                         lbTitle1.Text = receptGet.Rows[0][2].ToString();
                         lbTitle2.Text = receptGet.Rows[1][2].ToString();
                         lbTitle3.Text = receptGet.Rows[2][2].ToString();
@@ -59,7 +53,7 @@ namespace CookIT
                         
                         pbRecept1.Image = Image.FromFile(filepath);
 
-                    }
+                    
                 }
                 else
                 {
@@ -75,7 +69,7 @@ namespace CookIT
 
         private void Module_Home_Load(object sender, EventArgs e)
         {
-            //genReceptList();
+            genReceptList();
         }
         public void setLabelEvent()
         {
@@ -222,18 +216,20 @@ namespace CookIT
         }
         private void genReceptList()
         {
-            //NEEDS TO BE FIXED!
+
             int count = mgr.getRecepten().Rows.Count;
             int x = 241;
-            int y = 394;
+            int y = 340;
+            DataTable recepten= mgr.getRecepten();
             for (int i = 0; i < count; i++)
             {
                 Label NewLabel = new Label();
-                NewLabel.Name = mgr.getRecept(count).naam;
-                NewLabel.Text = mgr.getRecept(count).naam;
+                NewLabel.Name = recepten.Rows[i]["recept_naam"].ToString();
+                NewLabel.Text = recepten.Rows[i]["recept_naam"].ToString();
                 NewLabel.Tag = "Recept";
                 NewLabel.Left = x;
                 NewLabel.Top = y;
+                NewLabel.Font =  new Font("Arial", 12, FontStyle.Bold);
                 this.Controls.Add(NewLabel);
                 y += 20;
             }

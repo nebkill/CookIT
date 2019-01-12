@@ -46,7 +46,6 @@
             this.lvRating4 = new System.Windows.Forms.ListView();
             this.lbCategoryTitle = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.tlpCatRecepten.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept2)).BeginInit();
@@ -240,24 +239,10 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.label1.Location = new System.Drawing.Point(241, 394);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Tag = "Recept";
-            this.label1.Text = "Titel recept 1";
-            // 
             // Module_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tlpCatRecepten);
             this.Name = "Module_Home";
@@ -270,7 +255,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbRecept4)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -292,6 +276,5 @@
         private System.Windows.Forms.Label lbCategoryTitle;
         private System.Windows.Forms.ImageList ilRating;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
     }
 }
