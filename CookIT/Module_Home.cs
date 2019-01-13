@@ -260,7 +260,7 @@ namespace CookIT
             panel.Controls.Clear();
             panel.Controls.Add(receptAdd);
         }
-        private void genReceptList()
+        public void genReceptList()
         {
 
             int count = mgr.getRecepten().Rows.Count;
