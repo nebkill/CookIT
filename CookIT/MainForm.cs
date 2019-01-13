@@ -89,7 +89,7 @@ namespace CookIT
 
         private void pbLogo_Click(object sender, EventArgs e)
         {
-            home.genReceptList();
+            //home.genReceptList(); Zorgt voor rare render bug
             pLoadPanel.Controls.Clear();
             pLoadPanel.Controls.Add(home);
         }
