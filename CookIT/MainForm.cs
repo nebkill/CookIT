@@ -21,7 +21,7 @@ namespace CookIT
         Module_ReceptView rView = new Module_ReceptView();
         Module_ReceptAdd rAdd = new Module_ReceptAdd();
         Module_Search search = new Module_Search();
-        
+
         Connect con = new Connect();
         LogHandler er = new LogHandler();
 
@@ -50,7 +50,7 @@ namespace CookIT
         //    LogIn inlog = new LogIn(user, pass);
 
         //    if (tbGebruikersNaam.Text != "" && tbWachtwoord.Text = "")
-        //    {   
+        //    {
         //    if (inlog.IsLoggedIn(inlog.gebruikersnaam, inlog.wachtwoord))
         //    {
         //            //Kijk trello voor de bijbehorende linkjes

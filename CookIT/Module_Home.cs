@@ -65,21 +65,11 @@ namespace CookIT
 
                             p.Image = Image.FromFile(filepath);
                             count2++;
+                            //    string file = "Love_Heart_symbol_square.png";
+                            //    string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+
+                            //    pbRecept1.Image = Image.FromFile(filepath);
                         }
-
-                        //for (int i = 0; i < 3; i++)
-                        //{
-                        //    string label = "lbTitle" + i;
-                        //    lbTitle1.Text = receptGet.Rows[i][1].ToString();
-                        //    lbTitle2.Text = receptGet.Rows[i][1].ToString();
-                        //    lbTitle3.Text = receptGet.Rows[i][1].ToString();
-                        //    lbTitle4.Text = receptGet.Rows[i][1].ToString();
-
-                        //    string file = "Love_Heart_symbol_square.png";
-                        //    string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
-
-                        //    pbRecept1.Image = Image.FromFile(filepath);
-                        //}
                     }
                 }
                 else
@@ -109,30 +99,16 @@ namespace CookIT
             {
                 lb.Click += new EventHandler(label_Click);
             }
-            //lbTitle1.Click += new EventHandler(label_Click);
-            //lbTitle2.Click += new EventHandler(label_Click);
-            //lbTitle3.Click += new EventHandler(label_Click);
-            //lbTitle4.Click += new EventHandler(label_Click);
-
-            //foreach (Control ct in this.tlpCatRecepten.Controls)
-            //{
-            //    if (ct is Label)
-            //    {
-            //        ((Label)ct).Click += new EventHandler(label_Click);
-            //    }
-            //}
 
         }
 
         public void label_Click(object sender, EventArgs e)
         {
+            this.receptView = new Module_ReceptView();
             Label clickedLabel = sender as Label;
-            //Module_ReceptView mrv = new Module_ReceptView();
 
             if (clickedLabel != null && (string)clickedLabel.Tag == "Recept")
             {
-                //DataTable recepten = mgr.getRecepten();
-                //Recept item = new Recept();
                 string source = clickedLabel.Name;
                 string lbName = "";
                 if (source.Length == 12)
@@ -145,29 +121,6 @@ namespace CookIT
                 }
                 
                 int choosenLabel = Convert.ToInt32(lbName);
-                //string var = clickedLabel.Name;
-                //int choosenLabel = -1;
-
-
-                //switch (var)
-                //{
-                //    case "lbTitle1":
-                //        choosenLabel = 0;
-                //        break;
-
-                //    case "lbTitle2":
-                //        choosenLabel = 1;
-                //        break;
-
-                //    case "lbTitle3":
-                //        choosenLabel = 2;
-                //        break;
-
-                //    case "lbTitle4":
-                //        choosenLabel = 3;
-                //        break;
-
-                //}
 
                 DataTable recepten = mgr.dtTopFour();
                 Recept item = new Recept();
@@ -189,30 +142,8 @@ namespace CookIT
                     item.video = recepten.Rows[choosenLabel][4].ToString();
                     item.image = recepten.Rows[choosenLabel][10].ToString();
 
-
-                    //for (int i = 0; i < recepten.Rows.Count; i++)
-                    //{
-                    //    if(recepten.Rows[i][1].ToString() == clickedLabel.Text)
-                    //    {
-                    //        List<string> ingr = recepten.Rows[i][11].ToString().Split('-').ToList<string>();
-                    //        List<string> stap = recepten.Rows[i][12].ToString().Split('-').ToList<string>();
-                    //        List<string> benod = recepten.Rows[i][9].ToString().Split(',').ToList<string>();
-                    //        item.id = (int)recepten.Rows[i][0];
-                    //        item.naam = recepten.Rows[i][1].ToString();
-                    //        item.desc = recepten.Rows[i][2].ToString();
-                    //        item.auteur = recepten.Rows[i][3].ToString();
-                    //        item.ingredienten = ingr;
-                    //        item.stappen = stap;
-                    //        item.benodigdheden = benod;
-                    //        item.dieet = recepten.Rows[i][8].ToString();
-                    //        item.rating = (int)recepten.Rows[i][5];
-                    //        item.video = recepten.Rows[i][4].ToString();
-                    //        item.image = recepten.Rows[i][10].ToString();
-                    //    }
-                    //}
                     receptView.setRecept(item);
 
-                    //var ViewPanel = new Module_ReceptView();
                     panel.Controls.Clear();
                     panel.Controls.Add(receptView);
                     receptView.BringToFront();
@@ -265,8 +196,8 @@ namespace CookIT
 
             int count = mgr.getRecepten().Rows.Count;
             int x = 241;
-            int y = 340;
-            DataTable recepten= mgr.getRecepten();
+            int y = 400;
+            DataTable recepten = mgr.getRecepten();
             for (int i = 0; i < count; i++)
             {
                 Label NewLabel = new Label();
