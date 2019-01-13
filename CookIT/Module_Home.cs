@@ -48,6 +48,21 @@ namespace CookIT
                     }
                     else
                     {
+                        string file = "kerstboomwatermeloen.jpg";
+                        string file1 = "gingerbread.jpg";
+                        string file2 = "salades.jpg";
+                        string file3 = "vistaart.jpg";
+
+                        string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+                        string filepath1 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file1);
+                        string filepath2 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file2);
+                        string filepath3 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file3);
+
+                        this.pbRecept1.Image = Image.FromFile(filepath);
+                        this.pbRecept2.Image = Image.FromFile(filepath1);
+                        this.pbRecept3.Image = Image.FromFile(filepath2);
+                        this.pbRecept4.Image = Image.FromFile(filepath3);
+
                         int count = 0;
                         //int count2 = 0;
                         foreach (Label l in this.tlpCatRecepten.Controls.OfType<Label>())
@@ -55,7 +70,7 @@ namespace CookIT
 
                             l.Text = receptGet.Rows[count][1].ToString();
                             count++;
-
+                            // hij neemt hier ook het title category label mee en dat moet niet
                         }
                         //foreach(PictureBox p in this.tlpCatRecepten.Controls.OfType<PictureBox>())
                         //{
@@ -66,20 +81,7 @@ namespace CookIT
                         //    p.Image = Image.FromFile(filepath);
                         //    count2++;
                         //}
-                        string file = "watermeloenkerstboom.jpg";
-                        string file1 = "gingerbread.jpg";
-                        string file2 = "salades.jpg";
-                        string file3 = "vistaart.jpg";
-                        
-                        string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
-                        string filepath1 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file1);
-                        string filepath2 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file2);
-                        string filepath3 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file3);
 
-                        pbRecept1.Image = Image.FromFile(filepath);
-                        pbRecept2.Image = Image.FromFile(filepath1);
-                        pbRecept3.Image = Image.FromFile(filepath2);
-                        pbRecept4.Image = Image.FromFile(filepath3);
                     }
                 }
                 else
