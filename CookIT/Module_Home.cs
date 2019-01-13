@@ -38,7 +38,6 @@ namespace CookIT
 
             DataTable receptGet = mgr.dtTopFour();
 
-            lbCategoryTitle.Text = "Top 5 Recepten";
             try
             {
                 if (receptGet != null)
@@ -50,26 +49,37 @@ namespace CookIT
                     else
                     {
                         int count = 0;
-                        int count2 = 0;
+                        //int count2 = 0;
                         foreach (Label l in this.tlpCatRecepten.Controls.OfType<Label>())
                         {
+
                             l.Text = receptGet.Rows[count][1].ToString();
                             count++;
 
                         }
-                        foreach(PictureBox p in this.tlpCatRecepten.Controls.OfType<PictureBox>())
-                        {
-                            string file = receptGet.Rows[count2][10].ToString();
+                        //foreach(PictureBox p in this.tlpCatRecepten.Controls.OfType<PictureBox>())
+                        //{
+                        //    string file = receptGet.Rows[count2][10].ToString();
 
-                            string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+                        //    string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
 
-                            p.Image = Image.FromFile(filepath);
-                            count2++;
-                            //    string file = "Love_Heart_symbol_square.png";
-                            //    string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+                        //    p.Image = Image.FromFile(filepath);
+                        //    count2++;
+                        //}
+                        string file = "watermeloenkerstboom.jpg";
+                        string file1 = "gingerbread.jpg";
+                        string file2 = "salades.jpg";
+                        string file3 = "vistaart.jpg";
+                        
+                        string filepath = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file);
+                        string filepath1 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file1);
+                        string filepath2 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file2);
+                        string filepath3 = Path.Combine(Environment.CurrentDirectory, @"..\..\Images\", file3);
 
-                            //    pbRecept1.Image = Image.FromFile(filepath);
-                        }
+                        pbRecept1.Image = Image.FromFile(filepath);
+                        pbRecept2.Image = Image.FromFile(filepath1);
+                        pbRecept3.Image = Image.FromFile(filepath2);
+                        pbRecept4.Image = Image.FromFile(filepath3);
                     }
                 }
                 else
@@ -79,9 +89,10 @@ namespace CookIT
             }
             catch
             {
-                MessageBox.Show("De rij kan niet in de database gevonden worden. Geen verbinding met de database. Voeg ip toe bij de domain eigenaar." +
-                    "Als u niet de eigenaar bent, neem dan contact op met de eigenaar.");
+                //MessageBox.Show("De rij kan niet in de database gevonden worden. Geen verbinding met de database. Voeg ip toe bij de domain eigenaar." +
+                //    "Als u niet de eigenaar bent, neem dan contact op met de eigenaar.");
             }
+            lbCategoryTitle.Text = "Top 4 Recepten";
         }
 
         private void Module_Home_Load(object sender, EventArgs e)
@@ -107,7 +118,7 @@ namespace CookIT
             this.receptView = new Module_ReceptView();
             Label clickedLabel = sender as Label;
 
-            if (clickedLabel != null && (string)clickedLabel.Tag == "Recept")
+            if (clickedLabel != null && (string)clickedLabel.Tag == "Recept" && clickedLabel.Name != "lbCategoryTitle")
             {
                 string source = clickedLabel.Name;
                 string lbName = "";
@@ -200,7 +211,7 @@ namespace CookIT
 
             int count = mgr.getRecepten().Rows.Count;
             int x = 241;
-            int y = 400;
+            int y = 410;
             DataTable recepten = mgr.getRecepten();
             for (int i = 0; i < count; i++)
             {

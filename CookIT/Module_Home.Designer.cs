@@ -59,7 +59,7 @@
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.17967F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.82033F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
-            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 251F));
+            this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 252F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 351F));
             this.tlpCatRecepten.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 328F));
             this.tlpCatRecepten.Controls.Add(this.pbRecept1, 0, 1);
@@ -101,25 +101,28 @@
             this.pbRecept2.Location = new System.Drawing.Point(281, 37);
             this.pbRecept2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbRecept2.Name = "pbRecept2";
-            this.pbRecept2.Size = new System.Drawing.Size(260, 188);
+            this.pbRecept2.Size = new System.Drawing.Size(259, 188);
+            this.pbRecept2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRecept2.TabIndex = 1;
             this.pbRecept2.TabStop = false;
             // 
             // pbRecept3
             // 
-            this.pbRecept3.Location = new System.Drawing.Point(547, 37);
+            this.pbRecept3.Location = new System.Drawing.Point(546, 37);
             this.pbRecept3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbRecept3.Name = "pbRecept3";
             this.pbRecept3.Size = new System.Drawing.Size(257, 187);
+            this.pbRecept3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRecept3.TabIndex = 2;
             this.pbRecept3.TabStop = false;
             // 
             // pbRecept4
             // 
-            this.pbRecept4.Location = new System.Drawing.Point(810, 37);
+            this.pbRecept4.Location = new System.Drawing.Point(809, 37);
             this.pbRecept4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pbRecept4.Name = "pbRecept4";
             this.pbRecept4.Size = new System.Drawing.Size(239, 187);
+            this.pbRecept4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbRecept4.TabIndex = 3;
             this.pbRecept4.TabStop = false;
             // 
@@ -152,7 +155,7 @@
             this.lbTitle2.AutoSize = true;
             this.lbTitle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle2.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lbTitle2.Location = new System.Drawing.Point(547, 228);
+            this.lbTitle2.Location = new System.Drawing.Point(546, 228);
             this.lbTitle2.Name = "lbTitle2";
             this.lbTitle2.Size = new System.Drawing.Size(105, 17);
             this.lbTitle2.TabIndex = 6;
@@ -164,7 +167,7 @@
             this.lbTitle3.AutoSize = true;
             this.lbTitle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTitle3.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.lbTitle3.Location = new System.Drawing.Point(810, 228);
+            this.lbTitle3.Location = new System.Drawing.Point(809, 228);
             this.lbTitle3.Name = "lbTitle3";
             this.lbTitle3.Size = new System.Drawing.Size(105, 17);
             this.lbTitle3.TabIndex = 7;
@@ -192,13 +195,13 @@
             this.lvRating2.Location = new System.Drawing.Point(281, 290);
             this.lvRating2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvRating2.Name = "lvRating2";
-            this.lvRating2.Size = new System.Drawing.Size(260, 53);
+            this.lvRating2.Size = new System.Drawing.Size(259, 53);
             this.lvRating2.TabIndex = 9;
             this.lvRating2.UseCompatibleStateImageBehavior = false;
             // 
             // lvRating3
             // 
-            this.lvRating3.Location = new System.Drawing.Point(547, 290);
+            this.lvRating3.Location = new System.Drawing.Point(546, 290);
             this.lvRating3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvRating3.Name = "lvRating3";
             this.lvRating3.Size = new System.Drawing.Size(256, 53);
@@ -207,7 +210,7 @@
             // 
             // lvRating4
             // 
-            this.lvRating4.Location = new System.Drawing.Point(810, 290);
+            this.lvRating4.Location = new System.Drawing.Point(809, 290);
             this.lvRating4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lvRating4.Name = "lvRating4";
             this.lvRating4.Size = new System.Drawing.Size(239, 53);
@@ -227,7 +230,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(1388, 43);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 43);
             this.button1.TabIndex = 2;
@@ -241,7 +244,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tlpCatRecepten);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Module_Home";
             this.Size = new System.Drawing.Size(1680, 775);
             this.Load += new System.EventHandler(this.Module_Home_Load);

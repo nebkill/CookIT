@@ -163,7 +163,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\Love_Heart_symbol_square.png" />
+    <Content Include="Images\vistaart.jpg" />
+    <Content Include="Images\gingerbread.jpg" />
+    <Content Include="Images\kerstboomwatermeloen.jpg" />
+    <Content Include="Images\salades.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
