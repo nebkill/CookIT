@@ -111,18 +111,22 @@ namespace CookIT
             {
                 string source = clickedLabel.Name;
                 string lbName = "";
-                if (source.Length == 12)
+                string lbNameSearch = "lbTitleList";
+                DataTable recepten = new DataTable();
+
+                if (source.Contains(lbNameSearch))
                 {
                     lbName = source.Remove(0, 11);
+                    recepten = mgr.getRecepten();
                 }
                 else
                 {
                     lbName = source.Remove(0, 7);
+                    recepten = mgr.dtTopFour();
                 }
                 
                 int choosenLabel = Convert.ToInt32(lbName);
-
-                DataTable recepten = mgr.dtTopFour();
+ 
                 Recept item = new Recept();
 
                 if (choosenLabel < recepten.Rows.Count)
